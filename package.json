@@ -1,0 +1,22 @@
+{
+  "name": "testgoogleapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "export GOOGLE_APPLICATION_CREDENTIALS=./service_account_credentials.json; export GCLOUD_PROJECT={composite-keel-294706}; nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "google-spreadsheet": "^3.0.13",
+    "googleapis": "^64.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
