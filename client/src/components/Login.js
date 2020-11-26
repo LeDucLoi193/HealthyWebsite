@@ -48,10 +48,7 @@ const Login = () => {
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  let loginInfo = {
-    username: "",
-    pass: ""
-  }
+  let loginInfo = {}
 
   let signUpInfo = {};
 
@@ -79,7 +76,11 @@ const Login = () => {
 
   const submitData = () => {
     axios.post('http://localhost:8080/auth', {
-      ...loginInfo
+      data: {...loginInfo},
+    }, 
+    {
+      withCredentials: true,
+      credentials: 'include'
     })
     .then((res) => {
       if (res.status === 200) {
