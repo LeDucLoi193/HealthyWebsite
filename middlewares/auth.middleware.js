@@ -9,15 +9,9 @@ module.exports.requireAuth = function (req, res, next) {
 
   try {
     const data = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
-    console.log(data)
     next()
   } catch(e) {
     console.log(e)
     return res.status(401).send()
   }
-}
-
-module.exports.refreshToken = function (req, res, next) {
-  requireAuth();
-  
 }

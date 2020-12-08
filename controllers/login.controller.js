@@ -1,40 +1,17 @@
 const {
-  getAuthToken,
-  getSpreadSheet,
-  getSpreadSheetValues
-} = require('../models/login.model');
+  getUserSheet,
+  testGetSpreadSheetValues
+} = require('../models/health.model');
 
-const { GoogleSpreadsheet } = require('google-spreadsheet');
 var md5 = require('blueimp-md5')
 const jwt = require('jsonwebtoken');
 let users = {};
 
-// spreadsheet key is the long id in the sheets URL
-const doc = new GoogleSpreadsheet('1QaCm9HM0gnJUrEdJAiGKdMk168qSIg6iYosenuI2Sxg');
-
-const spreadsheetId = '1QaCm9HM0gnJUrEdJAiGKdMk168qSIg6iYosenuI2Sxg';
-const sheetName = 'Sheet1';
+const sheetName = 'User';
 let data = {};
-
-
-const testGetSpreadSheetValues = async () => {
-  try {
-    const auth = await getAuthToken();
-    const response = await getSpreadSheetValues({
-      spreadsheetId,
-      sheetName,
-      auth
-    })
-    // console.log('output for getSpreadSheetValues', JSON.stringify(response.data, null, 2));
-    return response;
-  } catch(error) {
-    console.log(error.message, error.stack);
-  }
-}
 
 module.exports.login = async function (req, res) {
   try {
-    console.log(req.body)
     const { username, password } = req.body.data;
     let flag = 0;
     let id = 0;
@@ -54,7 +31,7 @@ module.exports.login = async function (req, res) {
     })
 
     // check request
-    data = await testGetSpreadSheetValues();
+    data = await testGetSpreadSheetValues(sheetName);
     for (const element of data.data.values) {
       if (username === element[1]) {
         if (md5(password, process.env.KEY_MD5) !== element[3]) {
@@ -82,13 +59,7 @@ module.exports.login = async function (req, res) {
     }
     else {
       //store the refresh token in the user array
-      await doc.useServiceAccountAuth({
-        client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-      });
-  
-      await doc.loadInfo(); // loads document properties and worksheets
-      const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id]
+      const sheet = await getUserSheet(); // or use doc.sheetsById[id]
       const rows = await sheet.getRows();
 
       rows[id-1].refreshToken = refreshToken;
@@ -110,13 +81,7 @@ module.exports.login = async function (req, res) {
 
 module.exports.signUp = async function (req, res) {
   try {
-    await doc.useServiceAccountAuth({
-      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-    });
-
-    await doc.loadInfo(); // loads document properties and worksheets
-    const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id]
+    const sheet = await getUserSheet(); // or use doc.sheetsById[id]
     
     const data = await testGetSpreadSheetValues();
 

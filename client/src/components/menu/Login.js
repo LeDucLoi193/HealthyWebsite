@@ -2,11 +2,11 @@ import React, { useState, useContext } from 'react';
 import { Input, Space, Button, Modal, Form, Checkbox, Select, Tooltip } from 'antd';
 import { Link, Redirect, Route } from "react-router-dom";
 import { UserOutlined, LockOutlined, QuestionCircleOutlined } from '@ant-design/icons';
-import logo from '../logo.svg';
+import logo from '../../logo.svg';
 
-import {LoginContext} from '../contexts/login';
+import {LoginContext} from '../../contexts/login';
 
-import '../styles/log.css';
+import '../../styles/log.css';
 
 const axios = require('axios');
 

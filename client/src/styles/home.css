@@ -1,0 +1,16 @@
+/* Healt-Info */
+.ant-form-item-control-input-content > button {
+  margin-right: 2rem;
+}
+
+.ant-input-number {
+  width: 68% !important;
+}
+
+/* Input-Data */
+h2 {
+  text-align: center;
+}
+#control-hooks {
+  margin-top: 2rem;
+}
