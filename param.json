@@ -1,0 +1,92 @@
+{
+  "loangxuong": {
+    "max": -1,
+    "min": -2.5
+  },
+  "viemphoi": {
+    "huyetap": {
+      "max1": 140,
+      "min1": 90,
+      "max2": 140,
+      "min2": 90
+    },
+    "BMI": {
+      "max": 30,
+      "min": 25
+    },
+    "nhiptim": {
+      "max": 100,
+      "min": 60
+    },
+    "nhiptho": {
+      "max": 20,
+      "min": 16
+    }
+  },
+  "viemphoiXN": {
+    "RBC": {
+      "max": 5.9,
+      "min": 4.5
+    },
+    "WBC": {
+      "max": 10,
+      "min": 4
+    },
+    "PLT": {
+      "max": 400,
+      "min": 150
+    },
+    "Ure": {
+      "max": 8.3,
+      "min": 1.7
+    },
+    "Glucose": {
+      "max": 6.4,
+      "min": 4.1
+    },
+    "Creatinin": {
+      "max": 106,
+      "min": 62
+    },
+    "proBNP": {
+      "min": 14.47
+    }
+  },
+  "gout": {
+    "axid_uric": {
+      "nam": {
+        "max": 416,
+        "min": 202
+      },
+      "nu": {
+        "max": 399,
+        "min": 143
+      }
+    },
+    "CRP_hs": {
+      "min": 5
+    },
+    "WBC": {
+      "max": 10,
+      "min": 5
+    },
+    "pH": {
+      "max": 6.5,
+      "min": 5.5
+    },
+    "glucose": {
+      "max": 6.7,
+      "min": 4.1
+    },
+    "cortisol": {
+      "AM": {
+        "max": 536,
+        "min": 171
+      },
+      "PM": {
+        "max": 327,
+        "min": 64
+      }
+    }
+  } 
+}

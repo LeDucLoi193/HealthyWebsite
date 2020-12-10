@@ -41,10 +41,8 @@ const Navbar = () => {
             </Menu.Item>
           </Menu.ItemGroup>
         </SubMenu>
-        <Menu.Item key="chart">
-          <Menu.Item key="chart" icon={<RadarChartOutlined />}>
-            Chart
-          </Menu.Item>
+        <Menu.Item key="chart" icon={<RadarChartOutlined />}>
+          <NavLink to="/chart" >Chart</NavLink>
         </Menu.Item>
       </Menu>
     </div>

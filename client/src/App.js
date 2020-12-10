@@ -7,6 +7,7 @@ import HealthInfo from './components/menu/HealthInfo';
 import LoangXuong from './components/data/LoangXuong';
 import ViemPhoi from './components/data/ViemPhoi';
 import Gout from './components/data/Gout';
+import Chart from './components/menu/Chart';
 
 import {LoginContext} from './contexts/login';
 
@@ -40,6 +41,9 @@ function App() {
             </Route>
             <Route path='/input-data/gout'>
               <Gout />
+            </Route>
+            <Route path='/chart'>
+              <Chart />
             </Route>
             <Route exact path="/">
               {
