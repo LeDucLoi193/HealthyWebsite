@@ -20,10 +20,7 @@ const options = {
   title: {
     display: true,
     fontSize: 14,
-    text: `Loang Xuong chart
-    Neu chi so > 100%, ban bi loang xuong
-    Neu chi so nam trong khoang 40-100%, ban bi thieu xuong
-    Neu chi so < 40%, chuc mung, ban van khoe :v`
+    text: 'Loang Xuong Chart'
   }
 }
 
@@ -54,6 +51,11 @@ const Chart = () => {
   return (
     <div>
       <Navbar />
+      <div style={{textAlign: "center"}}>
+        <h4>Neu chi so {'>'} 100%, ban bi loang xuong</h4>
+        <h4>Neu chi so nam trong khoang 40-100%, ban bi thieu xuong</h4>
+        <h4>Neu chi so {'<'} 40%, chuc mung, ban van khoe :v </h4>
+      </div>
       <Radar
         data={{
           labels: ["L1", "L2", "L3", "L4", "Total"],

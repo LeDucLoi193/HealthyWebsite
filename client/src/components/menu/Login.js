@@ -105,10 +105,12 @@ const Login = () => {
       if (res.status === 200) {
         setVisible(false);
         console.log(res.data.message);
+        setLoading(false);
       }
     })
     .catch((err) => {
       setVisible(false);
+      setLoading(false);
       alert(err.response.data.message);
     })
   }

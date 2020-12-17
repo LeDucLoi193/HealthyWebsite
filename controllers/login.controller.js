@@ -82,11 +82,8 @@ module.exports.login = async function (req, res) {
 module.exports.signUp = async function (req, res) {
   try {
     const sheet = await getUserSheet(); // or use doc.sheetsById[id]
-    
-    const data = await testGetSpreadSheetValues();
-
+    const data = await testGetSpreadSheetValues(sheetName);
     req.body.password = md5(req.body.password, process.env.KEY_MD5);
-    console.log(req.body);
 
     await sheet.addRow({
       id: data.data.values.length,
