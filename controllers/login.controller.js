@@ -97,3 +97,14 @@ module.exports.signUp = async function (req, res) {
     console.log(err)
   } 
 }
+
+module.exports.logOut = function (req, res) {
+  try {
+    res 
+    .clearCookie('jwt', {domain: 'localhost', path:'/'})
+    .status(200)
+    .send()
+  } catch(err) {
+    console.log(err)
+  } 
+}

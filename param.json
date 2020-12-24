@@ -54,11 +54,11 @@
   },
   "gout": {
     "axid_uric": {
-      "nam": {
+      "male": {
         "max": 416,
         "min": 202
       },
-      "nu": {
+      "female": {
         "max": 399,
         "min": 143
       }

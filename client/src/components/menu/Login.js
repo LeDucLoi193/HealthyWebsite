@@ -89,7 +89,7 @@ const Login = () => {
     })
     .catch((err) => {
       console.log(err);
-      alert(err.response.data.message);
+      alert(err);
     })
   }
 
@@ -119,7 +119,7 @@ const Login = () => {
     <div className="login">
       <Route>
         {
-          !isLogin ? <Redirect to="/sign-in" /> : <Redirect to="/" />
+          isLogin && <Redirect to="/" />
         }
       </Route>
         <img src={logo} /> 

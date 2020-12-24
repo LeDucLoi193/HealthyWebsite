@@ -1,23 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { Menu } from 'antd';
-import { HomeOutlined, HeartOutlined, SettingOutlined, RadarChartOutlined } from '@ant-design/icons';
+import { 
+  HomeOutlined, 
+  HeartOutlined, 
+  SettingOutlined, 
+  RadarChartOutlined,
+  LogoutOutlined
+} from '@ant-design/icons';
 import {
   NavLink,
 } from "react-router-dom";
+import { UpdateChartContext } from '../../contexts/update';
+
 
 const { SubMenu } = Menu;
+const axios = require('axios')
 
 const Navbar = () => {
   const [current, setCurrent] = useState('home');
+  const [updateChart, setUpdateChart] = useContext(UpdateChartContext);
+  const keys = ["radar_lx", "radar_vp", "radar_gout"]
 
   const handleClick = (e) => {
+    if (keys.includes(current)){
+      if (e.key !== current) {
+        setUpdateChart(!updateChart)
+      }
+    }
+    if (e.key === 'logout') {
+      axios.get('http://localhost:8080/auth/log-out',
+      {
+        withCredentials: true,
+        credentials: 'include'
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          window.location.href = '/sign-in'
+        }
+      })
+      .catch((err) => {
+        alert(err)
+      })
+    }
     setCurrent(e.key);
   }
 
   return (
     <div>
-      <Menu onClick={(e) => handleClick(e)} selectedKeys={[current]} mode="horizontal">
+      <Menu onClick={(e) => handleClick(e)} selectedKeys={current} mode="horizontal">
         <Menu.Item key="home" icon={<HomeOutlined />}>
           <NavLink to="/" >Home</NavLink>
         </Menu.Item>
@@ -41,8 +72,26 @@ const Navbar = () => {
             </Menu.Item>
           </Menu.ItemGroup>
         </SubMenu>
-        <Menu.Item key="chart" icon={<RadarChartOutlined />}>
-          <NavLink to="/chart" >Chart</NavLink>
+        
+        <SubMenu
+          key="SubMenuBieuDo"
+          icon={<RadarChartOutlined />}
+          title="Bieu do"
+        >
+          <Menu.ItemGroup title="Loai xet nghiem">
+            <Menu.Item key="radar_lx">
+              <NavLink to="/chart/loang-xuong" >Loang Xuong (CSTL)</NavLink>
+            </Menu.Item>
+            <Menu.Item key="radar_vp">
+              <NavLink to="/chart/viem-phoi" >Viem Phoi</NavLink>
+            </Menu.Item>
+            <Menu.Item key="radar_gout">
+              <NavLink to="/chart/gout" >Gout</NavLink>
+            </Menu.Item>
+          </Menu.ItemGroup>
+        </SubMenu>
+        <Menu.Item key="logout" icon={<LogoutOutlined />}>    
+          Logout
         </Menu.Item>
       </Menu>
     </div>
