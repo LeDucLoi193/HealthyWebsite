@@ -9,6 +9,7 @@
     "antd": "^4.9.1",
     "axios": "^0.21.0",
     "chart.js": "^2.9.4",
+    "promise-fs": "^2.1.1",
     "react": "^17.0.1",
     "react-chartjs-2": "^2.11.1",
     "react-dom": "^17.0.1",

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Menu } from 'antd';
-import { HomeOutlined, HeartOutlined, SettingOutlined, RadarChartOutlined } from '@ant-design/icons';
+import { HomeOutlined, HeartOutlined, SettingOutlined, RadarChartOutlined, CodepenOutlined } from '@ant-design/icons';
 import {
   NavLink,
 } from "react-router-dom";
@@ -43,6 +43,12 @@ const Navbar = () => {
         </SubMenu>
         <Menu.Item key="chart" icon={<RadarChartOutlined />}>
           <NavLink to="/chart" >Chart</NavLink>
+        </Menu.Item>
+        <Menu.Item key="bmi" icon={<CodepenOutlined />}>
+          <NavLink to="/bmi" >BMI</NavLink>
+        </Menu.Item>
+        <Menu.Item key="blog" icon={<CodepenOutlined />}>
+          <NavLink to="/blog" >Blog</NavLink>
         </Menu.Item>
       </Menu>
     </div>
