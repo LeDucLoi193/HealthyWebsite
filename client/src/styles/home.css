@@ -14,3 +14,13 @@ h2 {
 #control-hooks {
   margin-top: 2rem;
 }
+
+.card {
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+hr{
+  color: #b46666;
+  font-weight: 1px;
+}
