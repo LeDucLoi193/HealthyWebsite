@@ -1,4 +1,3 @@
-import { withWarn } from 'antd/lib/modal/confirm';
 import React, { useEffect, useContext } from 'react';
 
 import {LoginContext} from '../../contexts/login';

@@ -66,10 +66,20 @@ module.exports.login = async function (req, res) {
       await rows[id-1].save();
 
       //send the access token to the client inside a cookie
-      res
+      if (username === "admin") {
+        res
+        .cookie('jwt', accessToken)
+        .status(200)
+        .json({
+          message: "admin"
+        })
+      }
+      else {
+        res
         .cookie('jwt', accessToken)
         .status(200)
         .send()
+      }
     }
     return;
   } catch(err) {

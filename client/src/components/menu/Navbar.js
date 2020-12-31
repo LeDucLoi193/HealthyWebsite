@@ -12,6 +12,7 @@ import {
   NavLink,
 } from "react-router-dom";
 import { UpdateChartContext } from '../../contexts/update';
+import { LoginContext } from '../../contexts/login';
 
 
 const { SubMenu } = Menu;
@@ -19,6 +20,7 @@ const axios = require('axios')
 
 const Navbar = () => {
   const [current, setCurrent] = useState('home');
+  const [isLogin, setIsLogin] = useContext(LoginContext);
   const [updateChart, setUpdateChart] = useContext(UpdateChartContext);
   const keys = ["radar_lx", "radar_vp", "radar_gout"]
 
@@ -36,6 +38,7 @@ const Navbar = () => {
       })
       .then((res) => {
         if (res.status === 200) {
+          setIsLogin(false);
           window.location.href = '/sign-in'
         }
       })
