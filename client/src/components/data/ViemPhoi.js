@@ -72,7 +72,6 @@ const ViemPhoi = () => {
           Login again
         </Button>
       </Modal>
-      <Navbar />
       <Form {...layout} form={form} name="control-hooks" onFinish={(values) => onFinish(values)}>
         <Form.Item
           name="Gender"

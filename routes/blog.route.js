@@ -3,6 +3,7 @@ const router = express.Router();
 
 const blogController = require('../controllers/blog.controller');
 
-router.get('/', blogController.index);
+router.get('/', blogController.viewListBlog);
+router.get('/:blogId',blogController.viewBlog);
 
 module.exports = router;

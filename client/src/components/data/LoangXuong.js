@@ -50,7 +50,7 @@ const LoangXuong = () => {
       if (res.status === 200) {
         alert(res.data);
         setLoading(false);
-        window.location.href = '/';
+        window.location.href = '/loang-xuong';
       }
     })
     .catch((err) => {
@@ -77,7 +77,6 @@ const LoangXuong = () => {
           Login again
         </Button>
       </Modal>
-      <Navbar />
       <Form {...layout} form={form} name="control-hooks" onFinish={(values) => onFinish(values)}>
         <Form.Item
           name="Gender"

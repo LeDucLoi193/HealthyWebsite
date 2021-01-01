@@ -82,11 +82,23 @@ async function getGoutSheet() {
   return sheet;
 }
 
+async function getBlogsSheet() {
+  await doc.useServiceAccountAuth({
+    client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+    private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+  });
+  await doc.loadInfo(); // loads document properties and worksheets
+  const sheet = doc.sheetsByIndex[5]; // sheet 'Blogs'
+
+  return sheet;
+}
+
 module.exports = {
   getUserSheet,
   getLoangXuongSheet,
   getViemPhoiSheet,
   getViemPhoiXNSheet,
   getGoutSheet,
-  testGetSpreadSheetValues
+  testGetSpreadSheetValues,
+  getBlogsSheet
 }

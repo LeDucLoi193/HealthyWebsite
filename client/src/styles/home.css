@@ -24,3 +24,7 @@ hr{
   color: #b46666;
   font-weight: 1px;
 }
+
+span .heading-text{
+  font-style: italic;
+}

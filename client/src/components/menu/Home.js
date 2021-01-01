@@ -1,45 +1,59 @@
-import React from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 
-import Navbar from './Navbar'
+import {LoginContext} from '../../contexts/login';
+import SmallBlog from './SmallBlog'
 import {Card, Col, Row, Tag} from 'antd';
 
 import '../../styles/home.css'
 
+const axios = require('axios')
+
 const Home = () => {
+  const [isLogin, setIsLogin] = useContext(LoginContext);
+  const [data, setData] = useState([]);
+  useEffect( () => {
+    axios.get(`http://localhost:8080/get-home`, 
+    {
+      withCredentials: true,
+      credentials: 'include'
+    })
+    .then((res) => {
+      setIsLogin(true)
+    })
+    .catch((err) => {
+      window.location.href = "/sign-in"
+    })
+
+    axios.get(`http://localhost:8080/blog`)
+      .then((res)=>{
+        let renderData =[];
+        //console.log(res.data.data);
+        for(const element of res.data.data){
+          const obj ={
+            id: element[0],
+            title: element[1],
+            heading: element[2],
+            content1: element[3],
+            content2: element[4],
+            tag: element[5],
+            img: element[6]
+          }
+
+          renderData.push(obj);
+        }
+        console.log(res.data.data);
+        setData(renderData);
+        console.log(data)
+      })
+      .catch((err)=>{
+        throw err;
+      })
+  }, [])
+
   return (
     <div>
-        <Navbar />
-        <div className='card'>
-            <Card >
-                <Row>
-                    <Col span={8}>
-                        <img src='https://instagram.fhan2-2.fna.fbcdn.net/v/t51.2885-19/s150x150/117195083_755618295255467_5728603688931707662_n.jpg?_nc_ht=instagram.fhan2-2.fna.fbcdn.net&_nc_ohc=l9h32ec5E4QAX9z5Mop&tp=1&oh=74f02c6ddd198a96682006b362c76510&oe=60109833'/>
-                    </Col>
-                    <Col span={16}>
-                        <h1> Chi so co ban cua BMI CHi so bmi thi tu di ma tinh</h1>
-                        <hr/>
-                        <div><Tag color="#87d068">BMI</Tag></div>
-                        <span>CHi so bmi thi tu di ma tinh, bat tao tinh con cu CHi so bmi thi tu di ma tinh, bat tao tinh con cu CHi so bmi thi tu di ma tinh, bat tao tinh con cu </span>
-                    </Col>
-                </Row>
-            </Card>
-        </div>
-        <div className='card'>
-            <Card >
-                <Row>
-                    <Col span={8}>
-                        <img src='https://instagram.fhan2-2.fna.fbcdn.net/v/t51.2885-19/s150x150/117195083_755618295255467_5728603688931707662_n.jpg?_nc_ht=instagram.fhan2-2.fna.fbcdn.net&_nc_ohc=l9h32ec5E4QAX9z5Mop&tp=1&oh=74f02c6ddd198a96682006b362c76510&oe=60109833'/>
-                    </Col>
-                    <Col span={16}>
-                        <h1> Chi so co ban cua BMI CHi so bmi thi tu di ma tinh</h1>
-                        <hr/>
-                        <div><Tag color="#87d068">LoangXuong</Tag> <Tag color="#2db7f5">Gout</Tag></div>
-                        <span>CHi so bmi thi tu di ma tinh, bat tao tinh con cu CHi so bmi thi tu di ma tinh, bat tao tinh con cu CHi so bmi thi tu di ma tinh, bat tao tinh con cu </span>
-                    </Col>
-                </Row>
-            </Card>
-        </div>
-      </div>
+      {data.map((dat)=> <SmallBlog title = {dat.title} tag = {dat.tag} heading = {dat.heading} id = {dat.id}/>)}
+    </div>
   );
 }
 

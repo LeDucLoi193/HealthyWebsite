@@ -77,7 +77,6 @@ const BMI = () => {
           <div>Chi so BMI cua ban: {result}</div>
           {/* <div>Tình trạng cơ thể bạn: {bmiState}</div> */}
       </Modal>
-      <Navbar />
       <Form {...layout} form={form} name="control-hooks" onFinish={(values) => onFinish(values)}>
         <Form.Item
           name="Gender"

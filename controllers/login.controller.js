@@ -66,10 +66,20 @@ module.exports.login = async function (req, res) {
       await rows[id-1].save();
 
       //send the access token to the client inside a cookie
-      res
+      if (username === "admin") {
+        res
+        .cookie('jwt', accessToken)
+        .status(200)
+        .json({
+          message: "admin"
+        })
+      }
+      else {
+        res
         .cookie('jwt', accessToken)
         .status(200)
         .send()
+      }
     }
     return;
   } catch(err) {
@@ -93,6 +103,17 @@ module.exports.signUp = async function (req, res) {
     res.status(200).json({
       message: "Sign up successfully."
     })
+  } catch(err) {
+    console.log(err)
+  } 
+}
+
+module.exports.logOut = function (req, res) {
+  try {
+    res 
+    .clearCookie('jwt', {domain: 'localhost', path:'/'})
+    .status(200)
+    .send()
   } catch(err) {
     console.log(err)
   } 

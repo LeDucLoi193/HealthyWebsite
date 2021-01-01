@@ -8,6 +8,7 @@ const HomeRoute = require('./routes/home.route');
 const HealthRoute = require('./routes/health.route');
 const ChartRoute = require('./routes/chart.route');
 const BlogRoute = require('./routes/blog.route');
+const AdminRoute = require('./routes/admin.route');
 
 const AuthMiddleware = require('./middlewares/auth.middleware')
 
@@ -30,10 +31,11 @@ app.use(cors({
 }));
 
 app.use('/auth', LoginRoute)
+app.use('/blog',BlogRoute)
 app.use('/get-home', AuthMiddleware.requireAuth, HomeRoute)
 app.use('/input-data', AuthMiddleware.requireAuth, HealthRoute)
 app.use('/chart', AuthMiddleware.requireAuth, ChartRoute)
-app.use('/blog', AuthMiddleware.requireAuth,BlogRoute)
+app.use('/admin', AuthMiddleware.requireAuth, AdminRoute)
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
