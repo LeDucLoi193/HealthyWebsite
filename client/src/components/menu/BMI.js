@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
 import { Form, Modal, Button, Select, InputNumber } from 'antd';
 import Navbar from '../menu/Navbar';
 
 import '../../styles/home.css'
-
-const axios = require('axios')
 
 const { Option } = Select;
 const layout = {
@@ -24,10 +21,12 @@ const tailLayout = {
   },
 };
 
-const LoangXuong = () => {
+const BMI = () => {
   const [form] = Form.useForm();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState(0);
+  const [bmiState, setBmiState] = useState('');
 
   const handleOk = () => {
     setIsModalVisible(false);
@@ -37,28 +36,20 @@ const LoangXuong = () => {
     setIsModalVisible(false);
   };
 
+  function resolveBMI(values, setResult, callback){
+    setResult(values.weight*10000/(values.height*values.height));
+    callback(result);
+  }
   const onFinish = (values) => {
-    setLoading(true);
-    axios.post('http://localhost:8080/input-data/loang-xuong', {
-      data: {...values},
-    }, 
-    {
-      withCredentials: true,
-      credentials: 'include'
-    })
-    .then((res) => {
-      if (res.status === 200) {
-        alert(res.data);
-        setLoading(false);
-        window.location.href = '/loang-xuong';
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-      setIsModalVisible(true);
-      setLoading(false);
-    })
-  } 
+    setResult(values.weight*10000/(values.height*values.height));
+
+    // if(result < 18.5) setBmiState('Gầy. Hãy chăm chỉ tập thể dục!')
+    // else if(result >= 18.5 && result <= 25) setBmiState("Bình thường.");
+    // else setBmiState("Bạn béo quá. Giảm cân đi!!!")
+
+    setIsModalVisible(true);
+
+  }
 
   const onReset = () => {
     form.resetFields();
@@ -66,7 +57,7 @@ const LoangXuong = () => {
 
   return (
     <div>
-      <Modal
+      {/* <Modal
         title="Basic Modal"
         visible={isModalVisible}
         onOk={handleOk}
@@ -76,6 +67,15 @@ const LoangXuong = () => {
         <Button danger href='/sign-in'>
           Login again
         </Button>
+      </Modal> */}
+      <Modal
+        title="Chi so BMI"
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+          <div>Chi so BMI cua ban: {result}</div>
+          {/* <div>Tình trạng cơ thể bạn: {bmiState}</div> */}
       </Modal>
       <Form {...layout} form={form} name="control-hooks" onFinish={(values) => onFinish(values)}>
         <Form.Item
@@ -91,82 +91,53 @@ const LoangXuong = () => {
             placeholder="Select a option and change input text above"
             allowClear
           >
-            <Option value="male">Male</Option>
-            <Option value="female">Female</Option>
+            <Option value="male">Nam</Option>
+            <Option value="female">Nữ</Option>
           </Select>
         </Form.Item>
-        <h2>Chi so T-Score cho moi vung</h2>
+        <h2>Tính chỉ số BMI</h2>
         <Form.Item
-          name="L1"
-          label="L1"
+          name="height"
+          label="Chiều cao"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <InputNumber placeholder="Eg. 1" />
+          <InputNumber 
+            placeholder="Eg. 176 (cm)"
+           />
         </Form.Item>
 
         <Form.Item
-          name="L2"
-          label="L2"
+          name="weight"
+          label="Cân nặng"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <InputNumber placeholder="Eg. 0.5" />
-        </Form.Item>
-
-        <Form.Item
-          name="L3"
-          label="L3"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <InputNumber placeholder="Eg. -0.5" />
-        </Form.Item>
-
-        <Form.Item
-          name="L4"
-          label="L4"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <InputNumber placeholder="Eg. -3" />
-        </Form.Item>
-
-        <Form.Item
-          name="Total"
-          label="Total"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <InputNumber placeholder="Eg. -2.6" />
+          <InputNumber 
+            placeholder="Eg. 65 (kg)" 
+            />
         </Form.Item>
 
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit" loading={loading}>
-            Submit
+            Tính
           </Button>
           <Button htmlType="button" onClick={onReset}>
-            Reset
+            Tải lại
           </Button>
         </Form.Item>
       </Form>
+      <a href="https://instagram.com/tichambers99" target="_blank">
+          Click here to see more about BMI
+      </a>
     </div>
   );
 }
 
-export default LoangXuong;
+export default BMI;

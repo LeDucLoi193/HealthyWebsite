@@ -2,9 +2,9 @@ import React, { useState, useContext } from 'react';
 import { Input, Space, Button, Modal, Form, Checkbox, Select, Tooltip } from 'antd';
 import { Link, Redirect, Route } from "react-router-dom";
 import { UserOutlined, LockOutlined, QuestionCircleOutlined } from '@ant-design/icons';
-import logo from '../../logo.svg';
+import logo from '../../healty.png';
 
-import {LoginContext} from '../../contexts/login';
+import {AdminContext, LoginContext} from '../../contexts/login';
 
 import '../../styles/log.css';
 
@@ -53,6 +53,7 @@ const Login = () => {
   let signUpInfo = {};
 
   const [isLogin, setIsLogin] = useContext(LoginContext);
+  const [admin, setAdmin] = useContext(AdminContext);
 
   const showModal = () => {
     setVisible(true);
@@ -75,7 +76,7 @@ const Login = () => {
   );
 
   const submitData = () => {
-    axios.post('http://localhost:8080/auth', {
+    axios.post('http://localhost:8080/auth/sign-in', {
       data: {...loginInfo},
     }, 
     {
@@ -84,12 +85,18 @@ const Login = () => {
     })
     .then((res) => {
       if (res.status === 200) {
-        setIsLogin(true);
+        if (res.data.message === "admin") {
+          setAdmin(true);
+          window.location.href = "/admin"
+        }
+        else {
+          setIsLogin(true);
+        }
       }
     })
     .catch((err) => {
       console.log(err);
-      alert(err.response.data.message);
+      alert(err);
     })
   }
 
@@ -105,10 +112,12 @@ const Login = () => {
       if (res.status === 200) {
         setVisible(false);
         console.log(res.data.message);
+        setLoading(false);
       }
     })
     .catch((err) => {
       setVisible(false);
+      setLoading(false);
       alert(err.response.data.message);
     })
   }
@@ -117,10 +126,10 @@ const Login = () => {
     <div className="login">
       <Route>
         {
-          !isLogin ? <Redirect to="/sign-in" /> : <Redirect to="/" />
+          isLogin && <Redirect to="/" />
         }
       </Route>
-        <img src={logo} /> 
+          <img src={logo}/>
       <Space direction="vertical" className="form-login">
         <Form
           name="normal_login"
@@ -129,6 +138,8 @@ const Login = () => {
             remember: true,
           }}
         >
+          <h2>HeaLtHy WeBsitE</h2>
+          <h2>Vjp Pr0 luxuRy ulTimaTe</h2>
           <Form.Item
             name="username"
             rules={[

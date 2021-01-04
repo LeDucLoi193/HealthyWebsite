@@ -66,10 +66,20 @@ module.exports.login = async function (req, res) {
       await rows[id-1].save();
 
       //send the access token to the client inside a cookie
-      res
+      if (username === "admin") {
+        res
+        .cookie('jwt', accessToken)
+        .status(200)
+        .json({
+          message: "admin"
+        })
+      }
+      else {
+        res
         .cookie('jwt', accessToken)
         .status(200)
         .send()
+      }
     }
     return;
   } catch(err) {
@@ -82,11 +92,8 @@ module.exports.login = async function (req, res) {
 module.exports.signUp = async function (req, res) {
   try {
     const sheet = await getUserSheet(); // or use doc.sheetsById[id]
-    
-    const data = await testGetSpreadSheetValues();
-
+    const data = await testGetSpreadSheetValues(sheetName);
     req.body.password = md5(req.body.password, process.env.KEY_MD5);
-    console.log(req.body);
 
     await sheet.addRow({
       id: data.data.values.length,
@@ -96,6 +103,17 @@ module.exports.signUp = async function (req, res) {
     res.status(200).json({
       message: "Sign up successfully."
     })
+  } catch(err) {
+    console.log(err)
+  } 
+}
+
+module.exports.logOut = function (req, res) {
+  try {
+    res 
+    .clearCookie('jwt', {domain: 'localhost', path:'/'})
+    .status(200)
+    .send()
   } catch(err) {
     console.log(err)
   } 
