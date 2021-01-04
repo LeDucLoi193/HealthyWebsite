@@ -49,7 +49,7 @@ const VPXetNghiem = () => {
       if (res.status === 200) {
         alert(res.data);
         setLoading(false);
-        window.location.href = '/chart/viem-phoi';
+        window.location.href = '/';
       }
     })
     .catch((err) => {

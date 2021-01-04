@@ -25,7 +25,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false)
   const [admin, setAdmin] = useState(false)
   const [updateChart, setUpdateChart] = useState(false)
-  
+
   return (
     <Router>
       <LoginContext.Provider value={[isLogin, setIsLogin]}>

@@ -14,3 +14,32 @@ h2 {
 #control-hooks {
   margin-top: 2rem;
 }
+
+/* RESIZE CHART */
+.chart-line-radar, .chart-radar-two {
+  /* margin: 0 auto;
+  width: 1000px;
+  height: 500px; */
+  display: flex;
+  justify-content: space-evenly;
+}
+/* chart for gout and loang xuong */
+.chart-line-two {
+  display: flex;
+  justify-content: space-evenly;
+}
+.chart-line-one {
+  position: relative;
+  height: 250px;
+  width: 500px;
+  margin: 0 auto;
+}
+.chart-lx {
+  width: 600px;
+}
+.chart-radar-one {
+  /* margin: 0 auto;
+  margin-top: 4rem; */
+  position: relative;
+  width: 700px;
+}

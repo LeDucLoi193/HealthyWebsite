@@ -50,7 +50,7 @@ const LoangXuong = () => {
       if (res.status === 200) {
         alert(res.data);
         setLoading(false);
-        window.location.href = '/loang-xuong';
+        window.location.href = '/';
       }
     })
     .catch((err) => {
