@@ -32,20 +32,6 @@ const Admin = () => {
     }
     setCurrentKey(e.key);
   }
-  // const [isLogin, setIsLogin] = useContext(LoginContext);
-  // useEffect( () => {
-  //   axios.get(`http://localhost:8080/get-home`, 
-  //   {
-  //     withCredentials: true,
-  //     credentials: 'include'
-  //   })
-  //   .then((res) => {
-  //     setIsLogin(true)
-  //   })
-  //   .catch((err) => {
-  //     window.location.href = "/sign-in"
-  //   })
-  // }, [])
   return (
     <UpdateAdminContext.Provider value={[update, setUpdate]}>
       <Layout>
@@ -56,13 +42,13 @@ const Admin = () => {
           <div className="logo">ADMIN</div>
           <Menu onClick={(e) => handleClick(e)} theme="dark" mode="inline" defaultSelectedKeys={currentKey}>
             <Menu.Item key="users" icon={<UserOutlined />}>
-              Users
+              Nguoi dung
             </Menu.Item>
             <Menu.Item key="blogs" icon={<ReadOutlined />}>
               Blogs
             </Menu.Item>
             <Menu.Item key="logout" icon={<LogoutOutlined />}>    
-              Logout
+              Dang xuat
             </Menu.Item>
           </Menu>
         </Sider>

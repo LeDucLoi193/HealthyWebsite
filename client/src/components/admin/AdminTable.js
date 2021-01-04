@@ -88,7 +88,7 @@ const AdminTable = (params) => {
 
   const userColumns = [
     {
-      title: 'Name',
+      title: 'Ten',
       dataIndex: 'name',
       key: 'name',
       render: text => <span className="name">{text}</span>,
@@ -99,16 +99,16 @@ const AdminTable = (params) => {
       key: 'email',
     },
     {
-      title: 'Phone number',
+      title: 'SDT',
       dataIndex: 'phone',
       key: 'phone',
     },
     {
-      title: 'Action',
+      title: 'Thao tac',
       key: 'action',
       render: (text, record, index) => (
         <Space size="middle">
-          <span className="action delete" onClick={(e, id=index+2) => handleDeleteUser(e, id)}>Delete</span>
+          <span className="action delete" onClick={(e, id=index+2) => handleDeleteUser(e, id)}>Xoa</span>
         </Space>
       ),
     },
@@ -116,23 +116,23 @@ const AdminTable = (params) => {
 
   const blogColumns = [
     {
-      title: 'Title',
+      title: 'Tieu de',
       dataIndex: 'title',
       key: 'title',
       render: text => <span className="name">{text}</span>,
     },
     {
-      title: 'Heading',
+      title: 'Noi bat',
       dataIndex: 'heading',
       key: 'heading',
     },
     {
-      title: 'Content1',
+      title: 'Noi dung 1',
       dataIndex: 'content1',
       key: 'content1',
     },
     {
-      title: 'Content2',
+      title: 'Noi dung 2',
       dataIndex: 'content2',
       key: 'content2',
     },
@@ -142,12 +142,12 @@ const AdminTable = (params) => {
       key: 'tag',
     },
     {
-      title: 'Action',
+      title: 'Thao tac',
       key: 'action',
       render: (text, record, index) => (
         <Space size="middle">
-          <span className="action" onClick={(e, id=index+1) => handleEditBlog(e, record, id)}>Edit</span>
-          <span className="action delete" onClick={(e, id=index+1) => handleDeleteBlog(e, id)}>Delete</span>
+          <span className="action" onClick={(e, id=index+1) => handleEditBlog(e, record, id)}>Sua</span>
+          <span className="action delete" onClick={(e, id=index+1) => handleDeleteBlog(e, id)}>Xoa</span>
         </Space>
       ),
     },
@@ -327,7 +327,7 @@ const AdminTable = (params) => {
               marginBottom: 16,
             }}
           >
-            Add new Blog
+            Them Blog
           </Button>
           <Table loading={loading} bordered columns={blogColumns} dataSource={data} />
           <Modal
@@ -345,14 +345,14 @@ const AdminTable = (params) => {
             >
               <Form.Item
                 name="title"
-                label="Title"
+                label="Tieu de"
                 rules={[{ required: true, message: 'Please input title!', whitespace: true }]}
               >
                 <Input />
               </Form.Item>
               <Form.Item
                 name="heading"
-                label="Heading"
+                label="Noi bat"
                 rules={[{ required: true, message: 'Please input heading!'}]}
               >
                 <Input />
@@ -360,7 +360,7 @@ const AdminTable = (params) => {
 
               <Form.Item
                 name="content1"
-                label="Content1"
+                label="Noi dung 1"
                 rules={[{ required: true, message: 'Please input content1!'}]}
               >
                 <TextArea autoSize={true} />
@@ -368,7 +368,7 @@ const AdminTable = (params) => {
 
               <Form.Item
                 name="content2"
-                label="Content2"
+                label="Noi dung 2"
               >
                 <TextArea autoSize={true} />
               </Form.Item>
@@ -382,7 +382,7 @@ const AdminTable = (params) => {
               </Form.Item>
 
               <div className="task-attachment">
-                <p className="task-attach-title">Add image</p>
+                <p className="task-attach-title">Them anh</p>
                 <Upload
                   action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
                   listType="picture-card"
@@ -407,7 +407,7 @@ const AdminTable = (params) => {
                   htmlType="button" 
                   onClick={() => handleCancel()}
                 > 
-                  Cancel 
+                  Huy 
                 </Button>
                 <Button 
                   type="primary" 
@@ -417,7 +417,7 @@ const AdminTable = (params) => {
                   loading={modalLoading}
                 >
                   {
-                    isAddBlog ? "Add" : "Update"
+                    isAddBlog ? "Them" : "Cap nhat"
                   }
                 </Button>
               </Form.Item>

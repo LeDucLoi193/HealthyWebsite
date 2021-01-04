@@ -1,9 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
-
 import {LoginContext} from '../../contexts/login';
 import catchError from '../../errors/error'
 import SmallBlog from './SmallBlog'
-import {Card, Col, Row, Tag} from 'antd';
 
 import '../../styles/home.css'
 
@@ -12,6 +10,7 @@ const axios = require('axios')
 const Home = () => {
   const [isLogin, setIsLogin] = useContext(LoginContext);
   const [data, setData] = useState([]);
+
   useEffect( () => {
     axios.get(`http://localhost:8080/get-home`, 
     {
