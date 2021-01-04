@@ -7,11 +7,11 @@ import { UpdateChartContext } from '../../contexts/update';
 import RadarChart from './RadarChart';
 import { LoginContext } from '../../contexts/login';
 import LineChart from './LineChart';
+import catchError from '../../errors/error'
 
 const axios = require('axios')
 
 const Chart = () => {
-  const [loadingSkeleton, setLoadingSkeleton] = useState(true);
   const [dataIndexes, setDataIndexes] = useState({});
   const [labels, setLables] = useState([]);
   const serverAddress = window.location.href.replace(3000, 8080)
@@ -31,7 +31,6 @@ const Chart = () => {
     .then((res) => {
       if (res.status === 200) {
         setIsLogin(true);
-        
         options = {
           legend: {
             display: true
@@ -69,18 +68,18 @@ const Chart = () => {
           }
           setDataIndexes({...newData})
         }
-        setLoadingSkeleton(false)
       }
     })
     .catch((err) => {
       console.log(err);
+      catchError(err);
     })
   }
-
+  
   useEffect( () => {
     getData()
   }, [updateChart])
-
+  
   return (
     <div>
       <div style={{textAlign: "center"}}>
@@ -91,7 +90,6 @@ const Chart = () => {
       {
         Object.keys(dataIndexes).length !== 0 ? dataIndexes.message !== "Viem Phoi" ?
           <div className="chart-line-radar">
-            <Skeleton loading={loadingSkeleton} active>
               <LineChart 
                 labels={labels}
                 resultsLine={dataIndexes.resultsLine}
@@ -103,24 +101,21 @@ const Chart = () => {
                 message={dataIndexes.message}
                 labels={labels}
               />
-            </Skeleton>
           </div>
           :
           <div className="chart-radar-two">
-            <Skeleton loading={loadingSkeleton} active>
-              <RadarChart
-                dataIndex={dataIndexes.resultVP}
-                options={options}
-                message={"Viem Phoi"}
-                labels={labels[0]}
-              />
-              <RadarChart
-                dataIndex={dataIndexes.resultVPXN}
-                options={options}
-                message={"Viem Phoi - Xet Nghiem"}
-                labels={labels[1]}
-              />
-            </Skeleton>  
+            <RadarChart
+              dataIndex={dataIndexes.resultVP}
+              options={options}
+              message={"Viem Phoi"}
+              labels={labels[0]}
+            />
+            <RadarChart
+              dataIndex={dataIndexes.resultVPXN}
+              options={options}
+              message={"Viem Phoi - Xet Nghiem"}
+              labels={labels[1]}
+            />
           </div>
           : null
       }

@@ -95,8 +95,8 @@ const Login = () => {
       }
     })
     .catch((err) => {
-      console.log(err);
-      alert(err);
+      console.log(err)
+      alert(err.response.data.message);
     })
   }
 
@@ -116,6 +116,7 @@ const Login = () => {
       }
     })
     .catch((err) => {
+      console.log(err)
       setVisible(false);
       setLoading(false);
       alert(err.response.data.message);

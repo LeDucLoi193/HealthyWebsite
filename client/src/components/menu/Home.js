@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 
 import {LoginContext} from '../../contexts/login';
+import catchError from '../../errors/error'
 import SmallBlog from './SmallBlog'
 import {Card, Col, Row, Tag} from 'antd';
 
@@ -21,7 +22,8 @@ const Home = () => {
       setIsLogin(true)
     })
     .catch((err) => {
-      window.location.href = "/sign-in"
+      console.log(err)
+      catchError(err);
     })
 
     axios.get(`http://localhost:8080/blog`)

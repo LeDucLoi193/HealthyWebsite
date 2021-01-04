@@ -17,7 +17,10 @@
     background: #141414;
   }
 
-span.action {
+span.action, span.name {
   cursor: pointer;
   color: rgb(43, 72, 201);
+}
+span.delete:hover {
+  color: red;
 }
