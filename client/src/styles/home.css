@@ -42,4 +42,19 @@ h2 {
   margin-top: 4rem; */
   position: relative;
   width: 700px;
+  
+/* BLOG */
+.card {
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+hr{
+  color: #b46666;
+  font-weight: 1px;
+}
+
+span .heading-text{
+  font-style: italic;
+
 }

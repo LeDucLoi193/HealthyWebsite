@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Input, Space, Button, Modal, Form, Checkbox, Select, Tooltip } from 'antd';
 import { Link, Redirect, Route } from "react-router-dom";
 import { UserOutlined, LockOutlined, QuestionCircleOutlined } from '@ant-design/icons';
-import logo from '../../logo.svg';
+import logo from '../../healty.png';
 
 import {AdminContext, LoginContext} from '../../contexts/login';
 
@@ -130,7 +130,7 @@ const Login = () => {
           isLogin && <Redirect to="/" />
         }
       </Route>
-        <img src={logo} /> 
+          <img src={logo}/>
       <Space direction="vertical" className="form-login">
         <Form
           name="normal_login"
@@ -139,6 +139,8 @@ const Login = () => {
             remember: true,
           }}
         >
+          <h2>HeaLtHy WeBsitE</h2>
+          <h2>Vjp Pr0 luxuRy ulTimaTe</h2>
           <Form.Item
             name="username"
             rules={[
