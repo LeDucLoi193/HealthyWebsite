@@ -9,6 +9,8 @@ import LoangXuong from './components/data/LoangXuong';
 import ViemPhoi from './components/data/ViemPhoi';
 import Gout from './components/data/Gout';
 import Chart from './components/menu/Chart';
+import BMI from './components/menu/BMI';
+import ShowBlog from './components/menu/ShowBlog';
 
 import { AdminContext, LoginContext } from './contexts/login';
 import { UpdateChartContext } from './contexts/update';
@@ -61,6 +63,12 @@ function App() {
               </Route>
               <Route exact path="/">
                 <Home />
+              </Route>
+              <Route exact path='/bmi'>
+                <BMI />
+              </Route>
+              <Route exact path='/blog/:blogId'>
+                <ShowBlog />
               </Route>
             </Switch>
           </AdminContext.Provider>

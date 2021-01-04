@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 
 import { Menu } from 'antd';
+
 import { 
   HomeOutlined, 
   HeartOutlined, 
@@ -93,6 +94,9 @@ const Navbar = () => {
             </Menu.Item>
           </Menu.ItemGroup>
         </SubMenu>
+        <Menu.Item key="bmi" icon={<HeartOutlined />}>    
+          <NavLink to="/bmi">BMI</NavLink>
+        </Menu.Item>
         <Menu.Item key="logout" icon={<LogoutOutlined />}>    
           Logout
         </Menu.Item>

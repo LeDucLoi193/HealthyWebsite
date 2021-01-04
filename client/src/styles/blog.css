@@ -1,0 +1,17 @@
+.blog{
+ margin: 20px auto;
+ padding: 40px 40px;
+ border: 1px solid #f0f0f0;
+ background-color: #f0f0f0;
+ max-width: 800px;
+ font-size: 20px;
+}
+
+.heading{
+    font-style: italic;
+    margin: 20px 0px;
+}
+
+img{
+    margin-bottom: 15px;
+}
