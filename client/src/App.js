@@ -19,8 +19,6 @@ import './index.css';
 import VPXetNghiem from './components/data/VPXetNghiem';
 import Admin from './components/admin/Admin';
 
-const axios = require('axios')
-
 function App() {
   const [isLogin, setIsLogin] = useState(false)
   const [admin, setAdmin] = useState(false)

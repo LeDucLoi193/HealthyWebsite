@@ -33,7 +33,7 @@ app.use('/auth', LoginRoute)
 app.use('/get-home', AuthMiddleware.requireAuth, HomeRoute)
 app.use('/input-data', AuthMiddleware.requireAuth, HealthRoute)
 app.use('/chart', AuthMiddleware.requireAuth, ChartRoute)
-app.use('/admin', AuthMiddleware.requireAuth, AdminRoute)
+app.use('/admin', AdminRoute)
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

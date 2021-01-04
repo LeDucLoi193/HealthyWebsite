@@ -3,11 +3,9 @@ import React, { useEffect, useContext, useState } from 'react';
 import '../../styles/admin.css';
 
 import { Layout, Menu } from 'antd';
-import { UserOutlined, ReadOutlined } from '@ant-design/icons';
+import { UserOutlined, ReadOutlined, LogoutOutlined } from '@ant-design/icons';
 import AdminTable from './AdminTable'
 import { UpdateAdminContext } from '../../contexts/update';
-
-
 
 const { Header, Content, Sider, Footer } = Layout;
 const axios = require('axios')
@@ -17,6 +15,21 @@ const Admin = () => {
   const [update, setUpdate] = useState(false);
 
   const handleClick = (e) => {
+    if (e.key === 'logout') {
+      axios.get('http://localhost:8080/auth/log-out',
+      {
+        withCredentials: true,
+        credentials: 'include'
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          window.location.href = '/sign-in'
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    }
     setCurrentKey(e.key);
   }
   // const [isLogin, setIsLogin] = useContext(LoginContext);
@@ -47,6 +60,9 @@ const Admin = () => {
             </Menu.Item>
             <Menu.Item key="blogs" icon={<ReadOutlined />}>
               Blogs
+            </Menu.Item>
+            <Menu.Item key="logout" icon={<LogoutOutlined />}>    
+              Logout
             </Menu.Item>
           </Menu>
         </Sider>

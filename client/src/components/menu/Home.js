@@ -1,9 +1,8 @@
 import React, { useEffect, useContext } from 'react';
 
 import {LoginContext} from '../../contexts/login';
-
+import catchError from '../../errors/error'
 const axios = require('axios')
-
 
 const Home = () => {
   const [isLogin, setIsLogin] = useContext(LoginContext);
@@ -17,7 +16,8 @@ const Home = () => {
       setIsLogin(true)
     })
     .catch((err) => {
-      window.location.href = "/sign-in"
+      console.log(err)
+      catchError(err);
     })
   }, [])
   return (

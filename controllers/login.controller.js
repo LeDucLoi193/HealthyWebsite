@@ -36,6 +36,7 @@ module.exports.login = async function (req, res) {
       if (username === element[1]) {
         if (md5(password, process.env.KEY_MD5) !== element[3]) {
           flag = 2;
+          break;
         }
         else {
           flag = 0;
