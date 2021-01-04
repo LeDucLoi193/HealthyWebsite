@@ -49,7 +49,7 @@ const Gout = () => {
       if (res.status === 200) {
         alert(res.data);
         setLoading(false);
-        window.location.href = '/chart/gout';
+        window.location.href = '/';
       }
     })
     .catch((err) => {

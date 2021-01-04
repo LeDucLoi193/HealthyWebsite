@@ -84,6 +84,7 @@ module.exports.postAddBlog = async function (req, res) {
   // const data = await testGetSpreadSheetValues(sheetUserName);
   const sheet = await getBlogsSheet() // sheet 'Blog'
   const rows = await sheet.getRows()
+  console.log(req.body)
 
   await sheet.addRow({
     id: rows.length + 1,
