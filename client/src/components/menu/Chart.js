@@ -6,6 +6,10 @@ import RadarChart from './RadarChart';
 import { LoginContext } from '../../contexts/login';
 import LineChart from './LineChart';
 import catchError from '../../errors/error'
+import { SuggestGout, SuggestLX, SuggestVP, SuggestVPXN } from '../suggestion/suggest';
+import { TreatmentLXNang, TreatmentLXNhe } from '../treatment/treatmentLX';
+import { TreatmentGoutAnUong, TreatmentGoutNgoaiKhoa, TreatmentGoutNoiKhoa } from '../treatment/treatmentGout';
+import { TreatmentVPNang, TreatmentVPTB } from '../treatment/treatmentVP';
 
 const axios = require('axios')
 
@@ -80,40 +84,73 @@ const Chart = () => {
   
   return (
     <div>
-      <div style={{textAlign: "center"}}>
-        <h4>Neu chi so {'>'} 100%, ban bi loang xuong</h4>
-        <h4>Neu chi so nam trong khoang 40%-100%, ban bi thieu xuong</h4>
-        <h4>Neu chi so {'<'} 40%, chuc mung, ban van khoe :v </h4> 
-      </div>
+      
       {
         Object.keys(dataIndexes).length !== 0 ? dataIndexes.message !== "Viem Phoi" ?
-          <div className="chart-line-radar">
-              <LineChart 
-                labels={labels}
-                resultsLine={dataIndexes.resultsLine}
-                message={dataIndexes.message}
-              />
-              <RadarChart
-                dataIndex={dataIndexes.resultsRadar}
-                options={options}
-                message={dataIndexes.message}
-                labels={labels}
-              />
+          <div>
+            <div className="chart-line-radar">
+                <LineChart 
+                  labels={labels}
+                  resultsLine={dataIndexes.resultsLine}
+                  message={dataIndexes.message}
+                />
+                <RadarChart
+                  dataIndex={dataIndexes.resultsRadar}
+                  options={options}
+                  message={dataIndexes.message}
+                  labels={labels}
+                />
+            </div>
+            {
+              dataIndexes.message === "Loang Xuong" ?
+              <div>
+                <SuggestLX />
+                <hr />
+                <h3 style={{ textAlign: "center", marginTop: "2rem"}}>Phac do dieu tri tham khao</h3>
+                <div style={{ display: "flex", justifyContent: "space-evenly"}}>
+                  <TreatmentLXNhe />
+                  <TreatmentLXNang />
+                </div>
+              </div>
+              :
+              <div>
+                <SuggestGout />
+                <hr />
+                <h3 style={{ textAlign: "center", marginTop: "2rem"}}>Phac do dieu tri tham khao</h3>
+                <div style={{ display: "flex", justifyContent: "space-evenly"}}>
+                  <TreatmentGoutAnUong />
+                  <TreatmentGoutNoiKhoa />
+                  <TreatmentGoutNgoaiKhoa />
+                </div>
+              </div>
+            }
           </div>
           :
-          <div className="chart-radar-two">
-            <RadarChart
-              dataIndex={dataIndexes.resultVP}
-              options={options}
-              message={"Viem Phoi"}
-              labels={labels[0]}
-            />
-            <RadarChart
-              dataIndex={dataIndexes.resultVPXN}
-              options={options}
-              message={"Viem Phoi - Xet Nghiem"}
-              labels={labels[1]}
-            />
+          <div>
+            <div className="chart-radar-two">
+              <RadarChart
+                dataIndex={dataIndexes.resultVP}
+                options={options}
+                message={"Viem Phoi"}
+                labels={labels[0]}
+              />
+              <RadarChart
+                dataIndex={dataIndexes.resultVPXN}
+                options={options}
+                message={"Viem Phoi - Xet nghiem Mau"}
+                labels={labels[1]}
+              />
+            </div>
+            <div>
+              <SuggestVP />
+              <SuggestVPXN />
+              <hr />
+              <h3 style={{ textAlign: "center", marginTop: "2rem"}}>Phac do dieu tri tham khao</h3>
+              <div style={{ display: "flex", justifyContent: "space-evenly"}}>
+                <TreatmentVPTB />
+                <TreatmentVPNang />
+              </div>
+            </div>
           </div>
           : null
       }
