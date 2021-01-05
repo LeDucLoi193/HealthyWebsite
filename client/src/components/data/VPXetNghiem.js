@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Form, Modal, Button, Select, InputNumber } from 'antd';
-import Navbar from '../menu/Navbar';
+import catchError from '../../errors/error'
 
 import '../../styles/home.css'
 
@@ -26,16 +26,7 @@ const tailLayout = {
 
 const VPXetNghiem = () => {
   const [form] = Form.useForm();
-  const [isModalVisible, setIsModalVisible] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
 
   const onFinish = (values) => {
     axios.post('http://localhost:8080/input-data/viem-phoi-xn', {
@@ -54,8 +45,8 @@ const VPXetNghiem = () => {
     })
     .catch((err) => {
       console.log(err);
-      setIsModalVisible(true);
       setLoading(false);
+      catchError(err);
     })
   } 
 
@@ -65,17 +56,6 @@ const VPXetNghiem = () => {
 
   return (
     <div>
-      <Modal
-        title="Basic Modal"
-        visible={isModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        footer={null}
-      >
-        <Button danger href='/sign-in'>
-          Login again
-        </Button>
-      </Modal>
       <Form {...layout} form={form} name="control-hooks" onFinish={(values) => onFinish(values)}>
         <Form.Item
           name="Gender"

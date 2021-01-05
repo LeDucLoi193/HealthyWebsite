@@ -3,11 +3,9 @@ import React, { useEffect, useContext, useState } from 'react';
 import '../../styles/admin.css';
 
 import { Layout, Menu } from 'antd';
-import { UserOutlined, ReadOutlined } from '@ant-design/icons';
+import { UserOutlined, ReadOutlined, LogoutOutlined } from '@ant-design/icons';
 import AdminTable from './AdminTable'
 import { UpdateAdminContext } from '../../contexts/update';
-
-
 
 const { Header, Content, Sider, Footer } = Layout;
 const axios = require('axios')
@@ -17,22 +15,23 @@ const Admin = () => {
   const [update, setUpdate] = useState(false);
 
   const handleClick = (e) => {
+    if (e.key === 'logout') {
+      axios.get('http://localhost:8080/auth/log-out',
+      {
+        withCredentials: true,
+        credentials: 'include'
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          window.location.href = '/sign-in'
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    }
     setCurrentKey(e.key);
   }
-  // const [isLogin, setIsLogin] = useContext(LoginContext);
-  // useEffect( () => {
-  //   axios.get(`http://localhost:8080/get-home`, 
-  //   {
-  //     withCredentials: true,
-  //     credentials: 'include'
-  //   })
-  //   .then((res) => {
-  //     setIsLogin(true)
-  //   })
-  //   .catch((err) => {
-  //     window.location.href = "/sign-in"
-  //   })
-  // }, [])
   return (
     <UpdateAdminContext.Provider value={[update, setUpdate]}>
       <Layout>
@@ -43,10 +42,13 @@ const Admin = () => {
           <div className="logo">ADMIN</div>
           <Menu onClick={(e) => handleClick(e)} theme="dark" mode="inline" defaultSelectedKeys={currentKey}>
             <Menu.Item key="users" icon={<UserOutlined />}>
-              Users
+              Nguoi dung
             </Menu.Item>
             <Menu.Item key="blogs" icon={<ReadOutlined />}>
               Blogs
+            </Menu.Item>
+            <Menu.Item key="logout" icon={<LogoutOutlined />}>    
+              Dang xuat
             </Menu.Item>
           </Menu>
         </Sider>

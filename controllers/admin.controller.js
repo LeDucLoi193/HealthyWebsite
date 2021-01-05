@@ -84,7 +84,6 @@ module.exports.postAddBlog = async function (req, res) {
   // const data = await testGetSpreadSheetValues(sheetUserName);
   const sheet = await getBlogsSheet() // sheet 'Blog'
   const rows = await sheet.getRows()
-  console.log(req.body)
 
   await sheet.addRow({
     id: rows.length + 1,
@@ -94,6 +93,69 @@ module.exports.postAddBlog = async function (req, res) {
 
   return res.status(200).json({
     data: data.data.values.slice(1),
-    message: "users"
+    message: "Add blog successfully"
   })
+}
+
+module.exports.editBlog = async function (req, res) {
+  try {
+    const sheet = await getBlogsSheet() // sheet 'Blog'
+    const rows = await sheet.getRows()
+
+    const id = req.params.id
+
+    const { title, heading, content1, content2, tag } = req.body
+
+    for (const row of rows) {
+      if (row.id === id) {
+        row.title = title
+        row.heading = heading
+        row.content1 = content1
+        row.content2 = content2
+        row.tag = tag
+        await row.save()
+        break;
+      }
+    }
+
+    const data = await testGetSpreadSheetValues(sheetBlogName);
+
+    return res.status(200).json({
+      data: data.data.values.slice(1),
+      message: "Update blog successfully"
+    })
+  } catch(err) {
+    console.log(err)
+  }
+}
+
+module.exports.deleteBlog = async function (req, res) {
+  try {
+    const sheet = await getBlogsSheet() // sheet 'Blog'
+    const rows = await sheet.getRows()
+
+    const id = req.params.id
+
+    for (const row of rows) {
+      if (row.id === id) {
+        await row.delete()
+        const newRows = await sheet.getRows();
+        for (const row of newRows) {
+          if (row.id > id) {
+            row.id -= 1
+            await row.save()
+          }
+        }
+      }
+    }
+
+    const data = await testGetSpreadSheetValues(sheetBlogName);
+
+    return res.status(200).json({
+      data: data.data.values.slice(1),
+      message: "Delete blog successfully"
+    })
+  } catch(err) {
+    console.log(err)
+  }
 }

@@ -54,10 +54,7 @@ const Navbar = () => {
     <div>
       <Menu onClick={(e) => handleClick(e)} selectedKeys={current} mode="horizontal">
         <Menu.Item key="home" icon={<HomeOutlined />}>
-          <NavLink to="/" >Home</NavLink>
-        </Menu.Item>
-        <Menu.Item key="info" icon={<HeartOutlined />}>    
-          <NavLink to="/health-info">User's Healthy Information</NavLink>
+          <NavLink to="/" >Trang chu</NavLink>
         </Menu.Item>
         <SubMenu
           key="SubMenu"
@@ -98,7 +95,7 @@ const Navbar = () => {
           <NavLink to="/bmi">BMI</NavLink>
         </Menu.Item>
         <Menu.Item key="logout" icon={<LogoutOutlined />}>    
-          Logout
+          Dang xuat
         </Menu.Item>
       </Menu>
     </div>

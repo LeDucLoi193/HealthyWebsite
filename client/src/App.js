@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Login from './components/menu/Login';
 import Home from './components/menu/Home';
@@ -20,8 +20,6 @@ import 'antd/dist/antd.css';
 import './index.css';
 import VPXetNghiem from './components/data/VPXetNghiem';
 import Admin from './components/admin/Admin';
-
-const axios = require('axios')
 
 function App() {
   const [isLogin, setIsLogin] = useState(false)
