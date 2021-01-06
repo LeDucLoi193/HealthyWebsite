@@ -57,7 +57,7 @@ module.exports.postLoangXuong = async function (req, res) {
     ...req.body.data
   })
 
-  return res.status(200).send('Add LoangXuong data successfully.');
+  return res.status(200).send('Them du lieu Loang Xuong thanh cong.');
 }
 
 // handle ViemPhoi
@@ -74,7 +74,7 @@ module.exports.postViemPhoi = async function (req, res) {
     ...req.body.data
   })
   
-  return res.status(200).send('Add Viem Phoi data successfully.');
+  return res.status(200).send('Them du lieu Viem Phoi thanh cong.');
 }
 
 module.exports.postViemPhoiXN = async function (req, res) {
@@ -90,7 +90,7 @@ module.exports.postViemPhoiXN = async function (req, res) {
     ...req.body.data
   })
   
-  return res.status(200).send('Add Viem Phoi xet nghiem data successfully.');
+  return res.status(200).send('Them du lieu xet nghiem mau Viem Phoi thanh cong.');
 }
 
 // handle Gout
@@ -107,5 +107,5 @@ module.exports.postGout = async function (req, res) {
     ...req.body.data
   })
   
-  return res.status(200).send('Add Gout data successfully.');
+  return res.status(200).send('Them du lieu Gout thanh cong.');
 }

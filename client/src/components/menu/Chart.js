@@ -88,7 +88,9 @@ const Chart = () => {
       {
         Object.keys(dataIndexes).length !== 0 ? dataIndexes.message !== "Viem Phoi" ?
           <div>
-            <div className="chart-line-radar">
+            {
+              !dataIndexes.firstTime ? 
+              <div className="chart-line-radar">
                 <LineChart 
                   labels={labels}
                   resultsLine={dataIndexes.resultsLine}
@@ -100,7 +102,17 @@ const Chart = () => {
                   message={dataIndexes.message}
                   labels={labels}
                 />
-            </div>
+              </div>
+              :
+              <div className="chart-line-radar">
+                <RadarChart
+                  dataIndex={dataIndexes.resultsRadar}
+                  options={options}
+                  message={dataIndexes.message}
+                  labels={labels}
+                />
+              </div>
+            }
             {
               dataIndexes.message === "Loang Xuong" ?
               <div>

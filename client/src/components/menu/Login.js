@@ -111,7 +111,7 @@ const Login = () => {
     .then((res) => {
       if (res.status === 200) {
         setVisible(false);
-        console.log(res.data.message);
+        alert(res.data.message);
         setLoading(false);
       }
     })

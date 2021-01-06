@@ -1,8 +1,4 @@
 const {
-  getLoangXuongSheet,
-  getViemPhoiSheet,
-  getViemPhoiXNSheet,
-  getGoutSheet,
   testGetSpreadSheetValues
 } = require('../models/health.model');
 
@@ -37,7 +33,8 @@ module.exports.getDataLoangXuong = async function (req, res) {
   let resultL1 = [], resultL2 = [], resultL3 = [], resultL4 = [], resultTotal = []
   let resultIndex = [], resultMin = []
   let resultsLine = [];
-  let resultsRadar = []
+  let resultsRadar = [];
+  let firstTime = false;
 
   // get max, min of loangxuong param
   let { max, min } = params.loangxuong;
@@ -55,8 +52,11 @@ module.exports.getDataLoangXuong = async function (req, res) {
 
   if (allIndexes.length === 0) {
     return res.status(404).json({
-      message: "No data"
+      message: "Khong co du lieu"
     });
+  }
+  else if (allIndexes.length === 1) {
+    firstTime = true;
   }
 
   for (let i = 0; i < allIndexes.length; ++i) {
@@ -79,7 +79,8 @@ module.exports.getDataLoangXuong = async function (req, res) {
   return res.status(200).json({
     resultsLine,
     resultsRadar,
-    message: "Loang Xuong"
+    message: "Loang Xuong",
+    firstTime
   });
 }
 
@@ -180,7 +181,7 @@ module.exports.getDataViemPhoi = async function (req, res) {
   }
   else {
     return res.status(404).json({
-      message: "No data"
+      message: "Khong co du lieu"
     });
   }
 }
@@ -197,6 +198,7 @@ module.exports.getDataGout = async function (req, res) {
   let resultAD = [], resultCRP = [], resultWBC = [], resultNEUT = [], resultLYM = [], resultpH = [], resultGlu = [], resultCor = []
   let resultsLine = [], resultsRadar = []
   let resultIndex = [], resultMin = [];
+  let firstTime = false;
 
   // Gout
   // get user's Gout index
@@ -211,8 +213,11 @@ module.exports.getDataGout = async function (req, res) {
   
   if (allIndexes.length === 0) {
     return res.status(404).json({
-      message: "No data"
+      message: "Khong co du lieu"
     })
+  }
+  else if (allIndexes.length === 1) {
+    firstTime = true;
   }
 
   for (let i = 0; i < allIndexes.length; ++i) {
@@ -289,6 +294,7 @@ module.exports.getDataGout = async function (req, res) {
   return res.status(200).json({
     resultsLine,
     resultsRadar,
-    message: "Gout"
+    message: "Gout",
+    firstTime
   })
 }
