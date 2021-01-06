@@ -54,7 +54,7 @@ const Navbar = () => {
     <div>
       <Menu onClick={(e) => handleClick(e)} selectedKeys={current} mode="horizontal">
         <Menu.Item key="home" icon={<HomeOutlined />}>
-          <NavLink to="/" >Trang chu</NavLink>
+          <NavLink to="/" >Trang chủ</NavLink>
         </Menu.Item>
         <SubMenu
           key="SubMenu"
@@ -63,10 +63,10 @@ const Navbar = () => {
         >
           <Menu.ItemGroup title="Loai xet nghiem">
             <Menu.Item key="loang_xuong">
-              <NavLink to="/input-data/loang-xuong" >Loang Xuong (CSTL)</NavLink>
+              <NavLink to="/input-data/loang-xuong" >Loãng Xương (CSTL)</NavLink>
             </Menu.Item>
             <Menu.Item key="viem_phoi">
-              <NavLink to="/input-data/viem-phoi" >Viem Phoi</NavLink>
+              <NavLink to="/input-data/viem-phoi" >Viêm phồi</NavLink>
             </Menu.Item>
             <Menu.Item key="gout">
               <NavLink to="/input-data/gout" >Gout</NavLink>
@@ -81,10 +81,10 @@ const Navbar = () => {
         >
           <Menu.ItemGroup title="Loai xet nghiem">
             <Menu.Item key="radar_lx">
-              <NavLink to="/chart/loang-xuong" >Loang Xuong (CSTL)</NavLink>
+              <NavLink to="/chart/loang-xuong" >Loãng Xương (CSTL)</NavLink>
             </Menu.Item>
             <Menu.Item key="radar_vp">
-              <NavLink to="/chart/viem-phoi" >Viem Phoi</NavLink>
+              <NavLink to="/chart/viem-phoi" >Viêm Phổi</NavLink>
             </Menu.Item>
             <Menu.Item key="radar_gout">
               <NavLink to="/chart/gout" >Gout</NavLink>
@@ -95,7 +95,7 @@ const Navbar = () => {
           <NavLink to="/bmi">BMI</NavLink>
         </Menu.Item>
         <Menu.Item key="logout" icon={<LogoutOutlined />}>    
-          Dang xuat
+          Đăng Xuất
         </Menu.Item>
       </Menu>
     </div>

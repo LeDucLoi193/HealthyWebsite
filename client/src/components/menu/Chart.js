@@ -10,6 +10,7 @@ import { SuggestGout, SuggestLX, SuggestVP, SuggestVPXN } from '../suggestion/su
 import { TreatmentLXNang, TreatmentLXNhe } from '../treatment/treatmentLX';
 import { TreatmentGoutAnUong, TreatmentGoutNgoaiKhoa, TreatmentGoutNoiKhoa } from '../treatment/treatmentGout';
 import { TreatmentVPNang, TreatmentVPTB } from '../treatment/treatmentVP';
+import { ExplicateGout, ExplicateLX, ExplicateVP } from '../explication/explication'
 
 const axios = require('axios')
 
@@ -116,9 +117,13 @@ const Chart = () => {
             {
               dataIndexes.message === "Loang Xuong" ?
               <div>
-                <SuggestLX />
+                <div style={{ display: "flex", justifyContent: "space-evenly", marginTop: "20px"}}>
+                  <ExplicateLX />
+                  <SuggestLX />
+                </div>
+                
                 <hr />
-                <h3 style={{ textAlign: "center", marginTop: "2rem"}}>Phac do dieu tri tham khao</h3>
+                <h3 style={{ textAlign: "center", marginTop: "2rem", fontWeight: "bold"}}>Phác đồ điều trị tham khảo</h3>
                 <div style={{ display: "flex", justifyContent: "space-evenly"}}>
                   <TreatmentLXNhe />
                   <TreatmentLXNang />
@@ -126,9 +131,12 @@ const Chart = () => {
               </div>
               :
               <div>
-                <SuggestGout />
+                <div style={{ display: "flex", justifyContent: "space-evenly", marginTop: "20px"}}>
+                  <ExplicateGout />
+                  <SuggestGout />
+                </div>
                 <hr />
-                <h3 style={{ textAlign: "center", marginTop: "2rem"}}>Phac do dieu tri tham khao</h3>
+                <h3 style={{ textAlign: "center", marginTop: "2rem", fontWeight: "bold"}}>Phác đồ điều trị tham khảo</h3>
                 <div style={{ display: "flex", justifyContent: "space-evenly"}}>
                   <TreatmentGoutAnUong />
                   <TreatmentGoutNoiKhoa />
@@ -153,11 +161,14 @@ const Chart = () => {
                 labels={labels[1]}
               />
             </div>
-            <div>
-              <SuggestVP />
-              <SuggestVPXN />
+            <div >
+              <div style={{ display: "flex", justifyContent: "space-evenly"}}>
+                {/* <SuggestVP /> */}
+                <ExplicateVP />
+                <SuggestVPXN />
+              </div>
               <hr />
-              <h3 style={{ textAlign: "center", marginTop: "2rem"}}>Phac do dieu tri tham khao</h3>
+              <h3 style={{ textAlign: "center", marginTop: "2rem", fontWeight: "bold"}}>Phác đồ điều trị tham khảo</h3>
               <div style={{ display: "flex", justifyContent: "space-evenly"}}>
                 <TreatmentVPTB />
                 <TreatmentVPNang />

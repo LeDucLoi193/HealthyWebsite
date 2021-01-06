@@ -1,19 +1,19 @@
 export const TreatmentVPTB = () => {
   return (
     <div>
-      <p>Dung thuoc ha sot khi nhiet do co the {'>'} 38.5 do C</p>
-      <p>Dam bao can bang nuoc - dien giai cho co the</p>
+      <p>Dùng thuốc hạ sốt khi nhiệt độ cơ thể {'>'} 38.5 độ C</p>
+      <p>Đam̉ bào cân bằng nước - điện giải cho cơ thể</p>
 
-      <h4>Dung khang sinh:</h4>
+      <h4>Dùng kháng sinh:</h4>
       <ul> 
-        <li>1. Amoxicilin - acid clavulanic: 1g x 3lan/ngay uong ket hop voi</li>
-        <li>2. clindamycin: 500mg x 2lan/ngay hoac azithromycin 500 mg/ngay</li>
+        <li>1. Amoxicilin - acid clavulanic: 1g x 3lần/ngày</li>
+        <li>2. clindamycin: 500mg x 2lần/ngày hoặc azithromycin 500 mg/ngày</li>
 
-        <h4>Neu khong uong duoc: </h4>
+        <h4>Nếu không uống được: </h4>
         <ul>
-          <li>1. Tiem tinh mach Amoxicilin - acid clavulanic: 1g x 3lan/ngay ket hop voi</li>
-          <li>clindamycin: 500mg x 2lan/ngay hoac azithromycin 500 mg/ngay</li>
-          <li>2. hoac levofloxacin: 750mg/ngay hoac moxifloxacin 400 mg/ngay</li>
+          <li>1. Tiêm tĩnh mạch Amoxicilin - acid clavulanic: 1g x 3lần/ngày kết hợp với</li>
+          <li>clindamycin: 500mg x 2lan/ngay hoac azithromycin 500 mg/ngày</li>
+          <li>2. hoặc levofloxacin: 750mg/ngày hoặc moxifloxacin 400 mg/ngày</li>
         </ul>
       </ul>
     </div>
@@ -23,15 +23,20 @@ export const TreatmentVPTB = () => {
 export const TreatmentVPNang = () => {
   return (
     <div>
-      <p>Tho oxy, thong khi nhan tao neu can</p>
-      <p>Xem xet thay doi khang sinh tuy theo dien bien lam sang</p>
+      <p>Dùng thuốc hạ sốt khi nhiệt độ cơ thể {'>'} 38.5 độ C</p>
+      <p>Đam̉ bào cân bằng nước - điện giải cho cơ thể</p>
 
-      <h4>Dung khang sinh: </h4>
+      <h4>Dùng kháng sinh:</h4>
       <ul> 
-        <li>1. Tiem tinh mach Amoxicilin - acid clavulanic: 1g x 3lan/ngay ket hop voi</li>
-        <li>clindamycin: 500mg x 2lan/ngay hoac levofloxacin 500 mg/ngay</li>
-        <li>2. Hoac cefotaxim: 1g x 3lan/ngay hoac ceftriaxon: 1g x 3lan/ngay hoac ceftazidim: 1g x 3lan/ngay</li>
-        <li>ket hop levofloxacin: 750mg/ngay hoac moxifloxacin 400 mg/ngay</li>
+        <li>1. Amoxicilin - acid clavulanic: 1g x 3lần/ngày</li>
+        <li>2. clindamycin: 500mg x 2lần/ngày hoặc azithromycin 500 mg/ngày</li>
+
+        <h4>Nếu không uống được: </h4>
+        <ul>
+          <li>1. Tiêm tĩnh mạch Amoxicilin - acid clavulanic: 1g x 3lần/ngày kết hợp với</li>
+          <li>clindamycin: 500mg x 2lan/ngay hoac azithromycin 500 mg/ngày</li>
+          <li>2. hoặc levofloxacin: 750mg/ngày hoặc moxifloxacin 400 mg/ngày</li>
+        </ul>
       </ul>
     </div>
   )

@@ -88,7 +88,7 @@ const AdminTable = (params) => {
 
   const userColumns = [
     {
-      title: 'Ten',
+      title: 'Tên',
       dataIndex: 'name',
       key: 'name',
       render: text => <span className="name">{text}</span>,
@@ -104,11 +104,11 @@ const AdminTable = (params) => {
       key: 'phone',
     },
     {
-      title: 'Thao tac',
+      title: 'Thao tác',
       key: 'action',
       render: (text, record, index) => (
         <Space size="middle">
-          <span className="action delete" onClick={(e, id=index+2) => handleDeleteUser(e, id)}>Xoa</span>
+          <span className="action delete" onClick={(e, id=index+2) => handleDeleteUser(e, id)}>Xóa</span>
         </Space>
       ),
     },
@@ -116,23 +116,23 @@ const AdminTable = (params) => {
 
   const blogColumns = [
     {
-      title: 'Tieu de',
+      title: 'Tiêu đề',
       dataIndex: 'title',
       key: 'title',
       render: text => <span className="name">{text}</span>,
     },
     {
-      title: 'Noi bat',
+      title: 'Nổi bật',
       dataIndex: 'heading',
       key: 'heading',
     },
     {
-      title: 'Noi dung 1',
+      title: 'Nội dung 1',
       dataIndex: 'content1',
       key: 'content1',
     },
     {
-      title: 'Noi dung 2',
+      title: 'Nội dung 2',
       dataIndex: 'content2',
       key: 'content2',
     },
@@ -142,12 +142,12 @@ const AdminTable = (params) => {
       key: 'tag',
     },
     {
-      title: 'Thao tac',
+      title: 'Thao tác',
       key: 'action',
       render: (text, record, index) => (
         <Space size="middle">
-          <span className="action" onClick={(e, id=index+1) => handleEditBlog(e, record, id)}>Sua</span>
-          <span className="action delete" onClick={(e, id=index+1) => handleDeleteBlog(e, id)}>Xoa</span>
+          <span className="action" onClick={(e, id=index+1) => handleEditBlog(e, record, id)}>Sửa</span>
+          <span className="action delete" onClick={(e, id=index+1) => handleDeleteBlog(e, id)}>Xóa</span>
         </Space>
       ),
     },
@@ -327,11 +327,11 @@ const AdminTable = (params) => {
               marginBottom: 16,
             }}
           >
-            Them Blog
+            Thêm Blog
           </Button>
           <Table loading={loading} bordered columns={blogColumns} dataSource={data} />
           <Modal
-            title={isAddBlog ? "Add new blog" : "Edit Blog"}
+            title={isAddBlog ? "Thêm blog mới" : "Sửa blog"}
             visible={visible}
             onCancel={handleCancel}
             footer={null}
@@ -345,30 +345,31 @@ const AdminTable = (params) => {
             >
               <Form.Item
                 name="title"
-                label="Tieu de"
-                rules={[{ required: true, message: 'Please input title!', whitespace: true }]}
+                label="Tiêu đề"
+                rules={[{ required: true, message: 'Hãy thêm tiêu đề!', whitespace: true }]}
               >
                 <Input />
               </Form.Item>
               <Form.Item
                 name="heading"
-                label="Noi bat"
-                rules={[{ required: true, message: 'Please input heading!'}]}
+                label="Nổi bật"
+                rules={[{ required: true, message: 'Hãy thêm phần nổi bật!'}]}
               >
                 <Input />
               </Form.Item>
 
               <Form.Item
                 name="content1"
-                label="Noi dung 1"
-                rules={[{ required: true, message: 'Please input content1!'}]}
+                label="Nội dung 1"
+                rules={[{ required: true, message: 'Hãy thêm nội dung 1!'}]}
               >
                 <TextArea autoSize={true} />
               </Form.Item>
 
               <Form.Item
                 name="content2"
-                label="Noi dung 2"
+                label="Nội dung 2"
+                rules={[{ required: true, message: 'Hãy thêm nội dung 2!'}]}
               >
                 <TextArea autoSize={true} />
               </Form.Item>
@@ -376,13 +377,13 @@ const AdminTable = (params) => {
               <Form.Item
                 name="tag"
                 label="Tag"
-                rules={[{ required: true, message: 'Please input tag!'}]}
+                rules={[{ required: true, message: 'Hãy thêm tag!'}]}
               >
                 <Input />
               </Form.Item>
 
               <div className="task-attachment">
-                <p className="task-attach-title">Them anh</p>
+                <p className="task-attach-title">Thêm ảnh</p>
                 <Upload
                   action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
                   listType="picture-card"
@@ -407,7 +408,7 @@ const AdminTable = (params) => {
                   htmlType="button" 
                   onClick={() => handleCancel()}
                 > 
-                  Huy 
+                  Hủy 
                 </Button>
                 <Button 
                   type="primary" 
@@ -417,7 +418,7 @@ const AdminTable = (params) => {
                   loading={modalLoading}
                 >
                   {
-                    isAddBlog ? "Them" : "Cap nhat"
+                    isAddBlog ? "Thêm" : "Cập nhật"
                   }
                 </Button>
               </Form.Item>

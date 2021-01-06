@@ -55,7 +55,7 @@ const ViemPhoi = () => {
       <Form {...layout} form={form} name="control-hooks" onFinish={(values) => onFinish(values)}>
         <Form.Item
           name="Gender"
-          label="Gender"
+          label="Giới tính"
           rules={[
             {
               required: true,
@@ -63,17 +63,17 @@ const ViemPhoi = () => {
           ]}
         >
           <Select
-            placeholder="Select a option and change input text above"
+            placeholder="Nam/Nữ"
             allowClear
           >
-            <Option value="male">Male</Option>
-            <Option value="female">Female</Option>
+            <Option value="male">Nam</Option>
+            <Option value="female">Nữ</Option>
           </Select>
         </Form.Item>
-        <h2>Chi so chung</h2>
+        <h2>Chỉ số chung</h2>
         <Form.Item
           name="HuyetAp"
-          label="Huyet ap"
+          label="Huyết áp"
           rules={[
             {
               required: true,
@@ -97,7 +97,7 @@ const ViemPhoi = () => {
 
         <Form.Item
           name="NhipTim"
-          label="Nhip Tim"
+          label="Nhịp Tim"
           rules={[
             {
               required: true,
@@ -109,14 +109,14 @@ const ViemPhoi = () => {
 
         <Form.Item
           name="NhipTho"
-          label="Nhip Tho"
+          label="Nhịp Thở"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <InputNumber placeholder="Eg. 19 (lan/phut)" />
+          <InputNumber placeholder="Eg. 19 (lần/phút)" />
         </Form.Item>
 
         <Form.Item {...tailLayout}>
