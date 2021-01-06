@@ -59,7 +59,7 @@ const Gout = () => {
       <Form {...layout} form={form} name="control-hooks" onFinish={(values) => onFinish(values)}>
         <Form.Item
           name="Gender"
-          label="Gender"
+          label="Giới tính"
           rules={[
             {
               required: true,
@@ -67,14 +67,14 @@ const Gout = () => {
           ]}
         >
           <Select
-            placeholder="Select a option and change input text above"
+            placeholder="Nam/Nữ"
             allowClear
           >
-            <Option value="male">Male</Option>
-            <Option value="female">Female</Option>
+            <Option value="male">Nam</Option>
+            <Option value="female">Nữ</Option>
           </Select>
         </Form.Item>
-        <h2>Chi so xet nghiem</h2>
+        <h2>Chỉ số xét nghiệm</h2>
         <Form.Item
           name="axiduric"
           label="Axid Uric"
@@ -89,7 +89,7 @@ const Gout = () => {
 
         <Form.Item
           name="CRP.hs"
-          label="Dinh luong CRP.hs"
+          label="Dinh dưỡng lượng CRP.hs"
           rules={[
             {
               required: true,
@@ -101,7 +101,7 @@ const Gout = () => {
 
         <Form.Item
           name="WBC"
-          label="So luong bach cau (WBC)"
+          label="Số lượng bạch cầu (WBC)"
           rules={[
             {
               required: true,
@@ -113,7 +113,7 @@ const Gout = () => {
 
         <Form.Item
           name="NEUT"
-          label="Ti le bach cau trung tinh (%)"
+          label="Tỉ lệ bạch cầu trung tính (%)"
           rules={[
             {
               required: true,
@@ -125,7 +125,7 @@ const Gout = () => {
 
         <Form.Item
           name="LYM"
-          label="Ti le bach cau Lympho (%)"
+          label="Tỉ lệ bạch cầu Lympho (%)"
           rules={[
             {
               required: true,
@@ -137,7 +137,7 @@ const Gout = () => {
 
         <Form.Item
           name="pH"
-          label="Do pH"
+          label="Độ pH"
           rules={[
             {
               required: true,
@@ -149,7 +149,7 @@ const Gout = () => {
 
         <Form.Item
           name="glucose"
-          label="Dinh luong glucose"
+          label="Nồng độ glucose"
           rules={[
             {
               required: true,
@@ -161,7 +161,7 @@ const Gout = () => {
 
         <Form.Item
           name="Cortisol"
-          label="Dinh luong Cortisol"
+          label="Nồng độ Cortisol"
           rules={[
             {
               required: true,

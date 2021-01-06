@@ -60,7 +60,7 @@ const LoangXuong = () => {
       <Form {...layout} form={form} name="control-hooks" onFinish={(values) => onFinish(values)}>
         <Form.Item
           name="Gender"
-          label="Gender"
+          label="Giới tính"
           rules={[
             {
               required: true,
@@ -68,11 +68,11 @@ const LoangXuong = () => {
           ]}
         >
           <Select
-            placeholder="Select a option and change input text above"
+            placeholder="Nam/Nữ"
             allowClear
           >
-            <Option value="male">Male</Option>
-            <Option value="female">Female</Option>
+            <Option value="male">Nam</Option>
+            <Option value="female">Nữ</Option>
           </Select>
         </Form.Item>
         <h2>Chi so T-Score cho moi vung</h2>

@@ -59,7 +59,7 @@ const VPXetNghiem = () => {
       <Form {...layout} form={form} name="control-hooks" onFinish={(values) => onFinish(values)}>
         <Form.Item
           name="Gender"
-          label="Gender"
+          label="Giới tính"
           rules={[
             {
               required: true,
@@ -67,17 +67,17 @@ const VPXetNghiem = () => {
           ]}
         >
           <Select
-            placeholder="Select a option and change input text above"
+            placeholder="Nam/Nữ"
             allowClear
           >
-            <Option value="male">Male</Option>
-            <Option value="female">Female</Option>
+            <Option value="male">Nam</Option>
+            <Option value="female">Nữ</Option>
           </Select>
         </Form.Item>
-        <h2>Chi so xet nghiem chi tiet</h2>
+        <h2>Chỉ số xét nghiệm chi tiết</h2>
         <Form.Item
           name="RBC"
-          label="So luong hong cau (RBC)"
+          label="Số lượng hồng cầu (RBC)"
           rules={[
             {
               required: true,
@@ -89,7 +89,7 @@ const VPXetNghiem = () => {
 
         <Form.Item
           name="WBC"
-          label="So luong bach cau (WBC)"
+          label="Số lượng bạch cầu (WBC)"
           rules={[
             {
               required: true,
@@ -101,7 +101,7 @@ const VPXetNghiem = () => {
 
         <Form.Item
           name="PLT"
-          label="So luong tieu cau (PLT)"
+          label="Số lượng tiểu cầu (PLT)"
           rules={[
             {
               required: true,
@@ -113,7 +113,7 @@ const VPXetNghiem = () => {
 
         <Form.Item
           name="Ure"
-          label="Dinh luong Ure"
+          label="Định lượng Ure"
           rules={[
             {
               required: true,
@@ -125,7 +125,7 @@ const VPXetNghiem = () => {
 
         <Form.Item
           name="Glucose"
-          label="Dinh luong Glucose"
+          label="Nồng độ Glucose"
           rules={[
             {
               required: true,
@@ -137,7 +137,7 @@ const VPXetNghiem = () => {
 
         <Form.Item
           name="Creatinin"
-          label="Dinh luong Creatinin"
+          label="Nồng độ Creatinin"
           rules={[
             {
               required: true,
@@ -149,7 +149,7 @@ const VPXetNghiem = () => {
 
         <Form.Item
           name="proBNP"
-          label="Dinh luong NT - proBNP"
+          label="Mức độ NT - proBNP"
           rules={[
             {
               required: true,

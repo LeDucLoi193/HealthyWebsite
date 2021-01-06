@@ -17,7 +17,7 @@ class Blog extends Component{
             <div><Tag color="#87d068">{this.props.dataState[5]}</Tag></div>
             <div className='heading'>{this.props.dataState[2]}</div>
             <p className='content'>{this.props.dataState[3]}</p>
-            <img src='https://kenh14cdn.com/203336854389633024/2020/12/27/photo-1-16090803728421665652964.png'/>
+            <img src='https://prod.static9.net.au/_/media/Network/Images/2018/04/04/13/08/180404_coach_bmi.jpg' style ={{maxWidth: "100%"}}/>
             <p className='content'>{this.props.dataState[4]}</p>
         </div>
       </div>

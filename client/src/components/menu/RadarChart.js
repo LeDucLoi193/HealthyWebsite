@@ -37,7 +37,7 @@ const RadarChart = (props) => {
         options={options}
       />
       <div style={{ textAlign: "center" }}>
-        Xet nghiem lan cuoi cung
+        Xét nghiệm lần cuối cùng
       </div>
     </div>
   );

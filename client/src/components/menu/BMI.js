@@ -74,7 +74,7 @@ const BMI = () => {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-          <div>Chi so BMI cua ban: {result}</div>
+          <div>Chỉ số BMI của bạn: {result}</div>
           {/* <div>Tình trạng cơ thể bạn: {bmiState}</div> */}
       </Modal>
       <Form {...layout} form={form} name="control-hooks" onFinish={(values) => onFinish(values)}>
@@ -134,7 +134,7 @@ const BMI = () => {
         </Form.Item>
       </Form>
       <a href="https://instagram.com/tichambers99" target="_blank">
-          Click here to see more about BMI
+          Nhấn vào đây để xem các bài blog về BMI
       </a>
     </div>
   );
