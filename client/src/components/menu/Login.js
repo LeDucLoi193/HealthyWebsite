@@ -146,7 +146,7 @@ const Login = () => {
             rules={[
               {
                 required: true,
-                message: 'Hay nhap ten!',
+                message: 'Hãy nhập tên!',
               },
             ]}
           >
@@ -154,7 +154,7 @@ const Login = () => {
               size="large" 
               prefix={<UserOutlined 
               className="site-form-item-icon" />} 
-              placeholder="Ten nguoi dung" 
+              placeholder="Tên người dùng" 
               onChange={(e) => {loginInfo.username = e.target.value}}
             />
           </Form.Item>
@@ -163,7 +163,7 @@ const Login = () => {
             rules={[
               {
                 required: true,
-                message: 'Hay nhap mat khau!',
+                message: 'Hãy nhập mật khẩu!',
               },
             ]}
           >
@@ -171,17 +171,17 @@ const Login = () => {
               size="large"
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
-              placeholder="Mat khau"
+              placeholder="Mật khẩu"
               onChange={(e) => {loginInfo.password = e.target.value}}
             />
           </Form.Item>
           <Form.Item className="form-checkbox-forgot">
             <Form.Item name="remember" noStyle>
-              <Checkbox>Ghi nho dang nhap</Checkbox>
+              <Checkbox>Ghi nhớ đăng nhập</Checkbox>
             </Form.Item>
 
             <span className="form-subspan">
-              <Link to="/forgot-password">Quen mat khau?</Link>
+              <Link to="/forgot-password">Quên mật khẩu?</Link>
             </span>
           </Form.Item>
 
@@ -192,14 +192,14 @@ const Login = () => {
               className="btn-signin login-form-button"
               onClick={() => submitData()}
             >
-              Dang nhap
+              Đăng nhập
             </Button> 
             <span onClick={() => showModal()} className="form-subspan">
-              Hoac dang ky ngay
+              Hoặc đăng ký ngay
             </span>
 
             <Modal
-              title="Dang ky"
+              title="Đăng ký"
               visible={visible}
               onCancel={() => handleCancel()}
               footer={null}
@@ -217,13 +217,13 @@ const Login = () => {
                   name="username"
                   label={
                     <span>
-                      Ten nguoi dung&nbsp;
-                      <Tooltip title="Ban ten la gi?">
+                      Tân người dùng&nbsp;
+                      <Tooltip title="Bạn tên là gì?">
                         <QuestionCircleOutlined />
                       </Tooltip>
                     </span>
                   }
-                  rules={[{ required: true, message: 'Hay nhap ten!', whitespace: true }]}
+                  rules={[{ required: true, message: 'Hãy nhập tên!', whitespace: true }]}
                 >
                   <Input onChange={(e) => {signUpInfo.username = e.target.value}} />
                 </Form.Item>
@@ -233,11 +233,11 @@ const Login = () => {
                   rules={[
                     {
                       type: 'email',
-                      message: 'Sai quy chuan email!',
+                      message: 'Sai quy chuẩn email!',
                     },
                     {
                       required: true,
-                      message: 'Hay nhap email!',
+                      message: 'Hãy nhập email!',
                     },
                   ]}
                 >
@@ -246,11 +246,11 @@ const Login = () => {
 
                 <Form.Item
                   name="password"
-                  label="Mat khau"
+                  label="Mật khẩu"
                   rules={[
                     {
                       required: true,
-                      message: 'Hay nhap mat khau!',
+                      message: 'Hãy nhập mật khẩu!',
                     },
                   ]}
                   hasFeedback
@@ -260,13 +260,13 @@ const Login = () => {
 
                 <Form.Item
                   name="confirm"
-                  label="Xac nhan mat khau"
+                  label="Xác nhận mật khẩu"
                   dependencies={['password']}
                   hasFeedback
                   rules={[
                     {
                       required: true,
-                      message: 'Hay xac nhan mat khau!',
+                      message: 'Hãy xác nhận mật khẩu!',
                     },
                     ({ getFieldValue }) => ({
                       validator(rule, value) {
@@ -274,7 +274,7 @@ const Login = () => {
                           return Promise.resolve();
                         }
 
-                        return Promise.reject('Mat khau xac nhan khong dung!');
+                        return Promise.reject('Mật khẩu xác nhận không đúng!');
                       },
                     }),
                   ]}
@@ -284,11 +284,11 @@ const Login = () => {
 
                 <Form.Item
                   name="phone"
-                  label="So dien thoai"
+                  label="Số điện thoại"
                   rules={[
                     {
                       required: true,
-                      message: 'Hay nhap so dien thoai!',
+                      message: 'Hã nhập số địên thoại!',
                     },
                   ]}
                 >
@@ -307,13 +307,13 @@ const Login = () => {
                   rules={[
                     {
                       validator: (_, value) =>
-                        value ? Promise.resolve() : Promise.reject('Hay dong y..'),
+                        value ? Promise.resolve() : Promise.reject('Hãy đồng ý..'),
                     },
                   ]}
                   {...tailFormItemLayout}
                 >
                   <Checkbox onChange={(e) => {signUpInfo.agree = e.target.checked}} >
-                    Toi da doc dieu khoan
+                    Tôi đã đọc các điều khỏan
                   </Checkbox>
                 </Form.Item>
                 <Form.Item {...tailFormItemLayout} style={{marginTop: "1rem"}}>
@@ -321,7 +321,7 @@ const Login = () => {
                     htmlType="button" 
                     onClick={() => handleCancel()}
                   > 
-                    Huy 
+                    Hủy 
                   </Button>
                   <Button 
                     type="primary" 
@@ -330,7 +330,7 @@ const Login = () => {
                     onClick={() => handleSignUp()}
                     loading={loading}
                   >
-                    Dang ky
+                    Đăng ký
                   </Button>
                 </Form.Item>
               </Form>

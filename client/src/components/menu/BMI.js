@@ -51,7 +51,7 @@ const BMI = () => {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-          <div>Chi so BMI cua ban: {result}</div>
+        <div>Chi so BMI cua ban: {result}</div>
       </Modal>
       <Form {...layout} form={form} name="control-hooks" onFinish={(values) => onFinish(values)}>
         <Form.Item

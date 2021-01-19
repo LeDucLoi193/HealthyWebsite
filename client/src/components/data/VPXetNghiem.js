@@ -59,7 +59,7 @@ const VPXetNghiem = () => {
       <Form {...layout} form={form} name="control-hooks" onFinish={(values) => onFinish(values)}>
         <Form.Item
           name="Gender"
-          label="Gender"
+          label="Giới tính"
           rules={[
             {
               required: true,
@@ -89,7 +89,7 @@ const VPXetNghiem = () => {
 
         <Form.Item
           name="WBC"
-          label="Số lượng bạch cầu  (WBC)"
+          label="Số lượng bạch cầu (WBC)"
           rules={[
             {
               required: true,

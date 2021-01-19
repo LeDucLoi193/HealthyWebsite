@@ -59,7 +59,7 @@ const Gout = () => {
       <Form {...layout} form={form} name="control-hooks" onFinish={(values) => onFinish(values)}>
         <Form.Item
           name="Gender"
-          label="Gender"
+          label="Giới tính"
           rules={[
             {
               required: true,
@@ -113,7 +113,7 @@ const Gout = () => {
 
         <Form.Item
           name="NEUT"
-          label="Tỉ lệ bạch cầu trung tính (%)"
+          label="Tỉ lệ bạch cầu trung tính (%)"
           rules={[
             {
               required: true,
@@ -137,7 +137,7 @@ const Gout = () => {
 
         <Form.Item
           name="pH"
-          label="Độ pH"
+          label="Độ pH"
           rules={[
             {
               required: true,

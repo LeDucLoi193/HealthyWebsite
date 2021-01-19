@@ -60,7 +60,7 @@ const LoangXuong = () => {
       <Form {...layout} form={form} name="control-hooks" onFinish={(values) => onFinish(values)}>
         <Form.Item
           name="Gender"
-          label="Gender"
+          label="Giới tính"
           rules={[
             {
               required: true,

@@ -42,13 +42,13 @@ const Admin = () => {
           <div className="logo">ADMIN</div>
           <Menu onClick={(e) => handleClick(e)} theme="dark" mode="inline" defaultSelectedKeys={currentKey}>
             <Menu.Item key="users" icon={<UserOutlined />}>
-              Nguoi dung
+              Người dùng
             </Menu.Item>
             <Menu.Item key="blogs" icon={<ReadOutlined />}>
               Blogs
             </Menu.Item>
             <Menu.Item key="logout" icon={<LogoutOutlined />}>    
-              Dang xuat
+              Đăng xuất
             </Menu.Item>
           </Menu>
         </Sider>
