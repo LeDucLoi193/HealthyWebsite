@@ -1,6 +1,6 @@
 export const TreatmentGoutAnUong = () => {
   return (
-    <div>
+    <div style={{ marginLeft: "1rem"}}>
       <p>1. Tránh thức ăn có nhiều purin như thịt cá tôm,...</p>
       <p>2. Có thể ăn trứng và hoa quả. Thịt không nên ăn quá 150g/ngày</p>
       <p>3. Không uống rượu, thường xuyên tập thể dục</p>
@@ -12,7 +12,7 @@ export const TreatmentGoutAnUong = () => {
 
 export const TreatmentGoutNoiKhoa = () => {
   return (
-    <div>
+    <div style={{ marginLeft: "1rem"}}>
       <p>Thở oxy, thông khí nhân tạo nếu cần</p>
       <p>Xem xet thay doi khang sinh tuy theo dien bien lam sang</p>
 
@@ -31,7 +31,7 @@ export const TreatmentGoutNoiKhoa = () => {
 
 export const TreatmentGoutNgoaiKhoa = () => {
   return (
-    <div>
+    <div style={{ marginLeft: "1rem"}}>
       <p>1. Phẫu thuật cắt bỏ tophi trong trường hợp: hạt tophi có kích thước lớn</p>
       <p>2. Dùng colchicin nhằm tránh khỏi phát cơn gout gấp</p>
       <p>3. Kết hợp thuốc hạ axit uric trong máu</p>

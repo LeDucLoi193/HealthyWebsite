@@ -55,7 +55,7 @@ const Admin = () => {
         <Layout>
           <Header className="site-layout-sub-header-background" style={{ padding: 0 }} />
           <Content style={{ margin: '24px 16px 0' }}>
-            <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+            <div className="site-layout-background" style={{ padding: 24, minHeight: 628 }}>
               <AdminTable currentKey={currentKey} />
             </div>
           </Content>

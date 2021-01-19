@@ -50,12 +50,12 @@ module.exports.login = async function (req, res) {
     }
     if (flag === 1) {
       res.status(500).send({
-        message: 'Username is not exist.'
+        message: 'Tên người dùng không tồn tại'
       })
     }
     else if (flag === 2) {
         res.status(500).send({
-        message: 'Wrong password.'
+        message: 'Sai mật khẩu'
       })
     }
     else {
@@ -102,7 +102,7 @@ module.exports.signUp = async function (req, res) {
     })
 
     res.status(200).json({
-      message: "Sign up successfully."
+      message: "Đăng ký thành công"
     })
   } catch(err) {
     console.log(err)

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Form, Modal, Button, Select, InputNumber } from 'antd';
+import { Form, Button, Select, InputNumber } from 'antd';
 import catchError from '../../errors/error'
 
 import '../../styles/home.css'
@@ -29,6 +29,7 @@ const Gout = () => {
   const [loading, setLoading] = useState(false);
 
   const onFinish = (values) => {
+    setLoading(true)
     axios.post('http://localhost:8080/input-data/gout', {
       data: {...values},
     }, 

@@ -1,6 +1,6 @@
 export const TreatmentLXNhe = () => {
   return (
-    <div>
+    <div style={{ marginLeft: "1rem"}}>
       <p>1. Chế độ dinh dưỡng cung cấp đủ canxi và vitamin D (thịt, cá, ánh nắng mặt trời,...)</p>
       <p>2. Duy trì thường xuyên hoạt động thể lực và bài tập làm căng sức co.</p>
       <p>3. Hạn chế uống rượu bia, không hút thuốc</p>
@@ -11,7 +11,7 @@ export const TreatmentLXNhe = () => {
 
 export const TreatmentLXNang = () => {
   return (
-    <div>
+    <div style={{ marginLeft: "1rem"}}>
       <h4>Dùng thuốc hủy xương (Giảm hoạt động của các tế bào chống hủy xương):</h4>
       <ul>
         <li>1. Raloxifen: 60mg hàng ngày hoặc Tibolone: 2,5mg uống hàng ngày</li>

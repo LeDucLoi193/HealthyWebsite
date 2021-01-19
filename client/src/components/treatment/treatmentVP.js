@@ -1,6 +1,6 @@
 export const TreatmentVPTB = () => {
   return (
-    <div>
+    <div style={{ marginLeft: "1rem"}}>
       <p>Dùng thuốc hạ sốt khi nhiệt độ cơ thể {'>'} 38.5 độ C</p>
       <p>Đam̉ bào cân bằng nước - điện giải cho cơ thể</p>
 
@@ -22,7 +22,7 @@ export const TreatmentVPTB = () => {
 
 export const TreatmentVPNang = () => {
   return (
-    <div>
+    <div style={{ marginLeft: "1rem"}}>
       <p>Dùng thuốc hạ sốt khi nhiệt độ cơ thể {'>'} 38.5 độ C</p>
       <p>Đam̉ bào cân bằng nước - điện giải cho cơ thể</p>
 

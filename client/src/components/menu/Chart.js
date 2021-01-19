@@ -52,7 +52,7 @@ const Chart = () => {
           responsive: true
         }
         if (res.data.message === "Loang Xuong") {
-          setLables(["L1", "L2", "L3", "L4", "Total"])
+          setLables(["L1", "L2", "L3", "L4", "Tổng"])
           setDataIndexes({...res.data})
         } 
         else if (res.data.message === "Gout") {
@@ -61,7 +61,7 @@ const Chart = () => {
         }
         else {
           setLables([
-            ["Huyet ap tam thu", "Huyet ap tam truong", "BMI", "Nhip Tim", "Nhip Tho"], 
+            ["Huyết áp tâm thu", "Huyết áp tâm trương", "BMI", "Nhịp tim", "Nhịp thở"], 
             ["RBC", "WBC", "PLT", "Ure", "Glucose", "Creatinin", "proBNP"]
           ])
           const newData = {
@@ -84,11 +84,10 @@ const Chart = () => {
   }, [updateChart])
   
   return (
-    <div>
-      
+    <div>    
       {
         Object.keys(dataIndexes).length !== 0 ? dataIndexes.message !== "Viem Phoi" ?
-          <div>
+          <div style={{ padding: "1rem 0"}}>
             {
               !dataIndexes.firstTime ? 
               <div className="chart-line-radar">
@@ -116,7 +115,7 @@ const Chart = () => {
             }
             {
               dataIndexes.message === "Loang Xuong" ?
-              <div>
+              <div style={{ padding: "1rem 0"}}> 
                 <div style={{ display: "flex", justifyContent: "space-evenly", marginTop: "20px"}}>
                   <ExplicateLX />
                   <SuggestLX />
@@ -146,24 +145,23 @@ const Chart = () => {
             }
           </div>
           :
-          <div>
+          <div style={{ padding: "1rem 0"}}>
             <div className="chart-radar-two">
               <RadarChart
                 dataIndex={dataIndexes.resultVP}
                 options={options}
-                message={"Viem Phoi"}
+                message={"Viêm Phổi"}
                 labels={labels[0]}
               />
               <RadarChart
                 dataIndex={dataIndexes.resultVPXN}
                 options={options}
-                message={"Viem Phoi - Xet nghiem Mau"}
+                message={"Viêm Phổi - Xét nghiệm máu"}
                 labels={labels[1]}
               />
             </div>
             <div >
               <div style={{ display: "flex", justifyContent: "space-evenly"}}>
-                {/* <SuggestVP /> */}
                 <ExplicateVP />
                 <SuggestVPXN />
               </div>

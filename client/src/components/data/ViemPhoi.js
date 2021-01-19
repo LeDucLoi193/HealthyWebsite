@@ -26,8 +26,10 @@ const tailLayout = {
 
 const ViemPhoi = () => {
   const [form] = Form.useForm();
+  const [loading, setLoading] = useState(false);
   
   const onFinish = (values) => {
+    setLoading(true)
     axios.post('http://localhost:8080/input-data/viem-phoi', {
       data: {...values},
     }, 
@@ -37,11 +39,13 @@ const ViemPhoi = () => {
     })
     .then((res) => {
       if (res.status === 200) {
+        setLoading(false)
         window.location.href = '/input-data/viem-phoi-xn';
       }
     })
     .catch((err) => {
       console.log(err);
+      setLoading(false)
       catchError(err);
     })
   } 
@@ -120,7 +124,7 @@ const ViemPhoi = () => {
         </Form.Item>
 
         <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" loading={loading}>
             Gửi
           </Button>
           <Button htmlType="button" onClick={onReset}>

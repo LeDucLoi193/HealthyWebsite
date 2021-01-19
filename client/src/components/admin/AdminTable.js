@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState, useRef } from 'react';
 
-import { Table, Modal, Form, Space, Button, Input, Upload } from 'antd';
+import { Table, Modal, Form, Space, Button, Input, Upload, Popconfirm } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
 import { UpdateAdminContext } from '../../contexts/update';
@@ -108,7 +108,14 @@ const AdminTable = (params) => {
       key: 'action',
       render: (text, record, index) => (
         <Space size="middle">
-          <span className="action delete" onClick={(e, id=index+2) => handleDeleteUser(e, id)}>Xóa</span>
+          <Popconfirm
+            title="Bạn có muốn xóa người dùng này không?"
+            onConfirm={(e, id=index+2) => handleDeleteUser(e, id)}
+            okText="Có"
+            cancelText="Không"
+          >
+            <span className="action delete">Xóa</span>
+          </Popconfirm>
         </Space>
       ),
     },
@@ -145,9 +152,23 @@ const AdminTable = (params) => {
       title: 'Thao tác',
       key: 'action',
       render: (text, record, index) => (
-        <Space size="middle">
-          <span className="action" onClick={(e, id=index+1) => handleEditBlog(e, record, id)}>Sửa</span>
-          <span className="action delete" onClick={(e, id=index+1) => handleDeleteBlog(e, id)}>Xóa</span>
+        <Space size="middle"> 
+          <Popconfirm
+            title="Bạn có muốn sửa blog này không?"
+            onConfirm={(e, id=index+1) => handleEditBlog(e, record, id)}
+            okText="Có"
+            cancelText="Không"
+          >
+            <span className="action">Sửa</span>
+          </Popconfirm>
+          <Popconfirm
+            title="Bạn có muốn xóa blog này không?"
+            onConfirm={(e, id=index+1) => handleDeleteBlog(e, id)}
+            okText="Có"
+            cancelText="Không"
+          >
+            <span className="action delete">Xóa</span>
+          </Popconfirm>       
         </Space>
       ),
     },

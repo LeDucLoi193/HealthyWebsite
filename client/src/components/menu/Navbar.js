@@ -59,14 +59,14 @@ const Navbar = () => {
         <SubMenu
           key="SubMenu"
           icon={<SettingOutlined />}
-          title="Nhap du lieu"
+          title="Nhập dữ liệu"
         >
-          <Menu.ItemGroup title="Loai xet nghiem">
+          <Menu.ItemGroup title="Loại xét nghiệm">
             <Menu.Item key="loang_xuong">
               <NavLink to="/input-data/loang-xuong" >Loãng Xương (CSTL)</NavLink>
             </Menu.Item>
             <Menu.Item key="viem_phoi">
-              <NavLink to="/input-data/viem-phoi" >Viêm phồi</NavLink>
+              <NavLink to="/input-data/viem-phoi" >Viêm Phổi</NavLink>
             </Menu.Item>
             <Menu.Item key="gout">
               <NavLink to="/input-data/gout" >Gout</NavLink>
@@ -77,9 +77,9 @@ const Navbar = () => {
         <SubMenu
           key="SubMenuBieuDo"
           icon={<RadarChartOutlined />}
-          title="Bieu do"
+          title="Biểu đồ"
         >
-          <Menu.ItemGroup title="Loai xet nghiem">
+          <Menu.ItemGroup title="Loại xét nghiệm">
             <Menu.Item key="radar_lx">
               <NavLink to="/chart/loang-xuong" >Loãng Xương (CSTL)</NavLink>
             </Menu.Item>

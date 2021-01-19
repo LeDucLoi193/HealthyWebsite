@@ -126,7 +126,7 @@ const LoangXuong = () => {
 
         <Form.Item
           name="Total"
-          label="Total"
+          label="Tổng"
           rules={[
             {
               required: true,

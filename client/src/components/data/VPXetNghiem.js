@@ -29,6 +29,7 @@ const VPXetNghiem = () => {
   const [loading, setLoading] = useState(false);
 
   const onFinish = (values) => {
+    setLoading(true)
     axios.post('http://localhost:8080/input-data/viem-phoi-xn', {
       data: {...values},
     }, 
