@@ -68,14 +68,14 @@ const LoangXuong = () => {
           ]}
         >
           <Select
-            placeholder="Select a option and change input text above"
+            placeholder="Chọn giới tính"
             allowClear
           >
-            <Option value="male">Male</Option>
-            <Option value="female">Female</Option>
+            <Option value="male">Nam</Option>
+            <Option value="female">Nữ</Option>
           </Select>
         </Form.Item>
-        <h2>Chi so T-Score cho moi vung</h2>
+        <h2>Chỉ số T-Score cho mỗi vùng</h2>
         <Form.Item
           name="L1"
           label="L1"
@@ -97,7 +97,7 @@ const LoangXuong = () => {
             },
           ]}
         >
-          <InputNumber placeholder="Eg. 0.5" />
+          <InputNumber placeholder="VD. 0.5" />
         </Form.Item>
 
         <Form.Item
@@ -109,7 +109,7 @@ const LoangXuong = () => {
             },
           ]}
         >
-          <InputNumber placeholder="Eg. -0.5" />
+          <InputNumber placeholder="VD. -0.5" />
         </Form.Item>
 
         <Form.Item
@@ -121,7 +121,7 @@ const LoangXuong = () => {
             },
           ]}
         >
-          <InputNumber placeholder="Eg. -3" />
+          <InputNumber placeholder="VD. -3" />
         </Form.Item>
 
         <Form.Item
@@ -133,15 +133,15 @@ const LoangXuong = () => {
             },
           ]}
         >
-          <InputNumber placeholder="Eg. -2.6" />
+          <InputNumber placeholder="VD. -2.6" />
         </Form.Item>
 
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit" loading={loading}>
-            Submit
+            Gửi
           </Button>
           <Button htmlType="button" onClick={onReset}>
-            Reset
+            Đặt lại
           </Button>
         </Form.Item>
       </Form>

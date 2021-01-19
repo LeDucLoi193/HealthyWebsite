@@ -67,14 +67,14 @@ const Gout = () => {
           ]}
         >
           <Select
-            placeholder="Select a option and change input text above"
+            placeholder="Chọn giới tính"
             allowClear
           >
-            <Option value="male">Male</Option>
-            <Option value="female">Female</Option>
+            <Option value="male">Nam</Option>
+            <Option value="female">Nữ</Option>
           </Select>
         </Form.Item>
-        <h2>Chi so xet nghiem</h2>
+        <h2>Chỉ số xét nghiệm</h2>
         <Form.Item
           name="axiduric"
           label="Axid Uric"
@@ -84,99 +84,99 @@ const Gout = () => {
             },
           ]}
         >
-          <InputNumber placeholder="Eg. 250 (mmol/L)" />
+          <InputNumber placeholder="VD. 250 (mmol/L)" />
         </Form.Item>
 
         <Form.Item
           name="CRP.hs"
-          label="Dinh luong CRP.hs"
+          label="Định lượng CRP.hs"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <InputNumber placeholder="Eg. 3.5 (mg/L)" />
+          <InputNumber placeholder="VD. 3.5 (mg/L)" />
         </Form.Item>
 
         <Form.Item
           name="WBC"
-          label="So luong bach cau (WBC)"
+          label="Số lượng bạch cầu (WBC)"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <InputNumber placeholder="Eg. 5 (T/L)" />
+          <InputNumber placeholder="VD. 5 (T/L)" />
         </Form.Item>
 
         <Form.Item
           name="NEUT"
-          label="Ti le bach cau trung tinh (%)"
+          label="Tỉ lệ bạch cầu trung tính (%)"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <InputNumber placeholder="Eg. 50 (%)" />
+          <InputNumber placeholder="VD. 50 (%)" />
         </Form.Item>
 
         <Form.Item
           name="LYM"
-          label="Ti le bach cau Lympho (%)"
+          label="Tỉ lệ bạch cầu Lympho (%)"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <InputNumber placeholder="Eg. 30 (%)" />
+          <InputNumber placeholder="VD. 30 (%)" />
         </Form.Item>
 
         <Form.Item
           name="pH"
-          label="Do pH"
+          label="Độ pH"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <InputNumber placeholder="Eg. 6.0" />
+          <InputNumber placeholder="VD. 6.0" />
         </Form.Item>
 
         <Form.Item
           name="glucose"
-          label="Dinh luong glucose"
+          label="Định lượng glucose"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <InputNumber placeholder="Eg. 5.0 (mmol/L)" />
+          <InputNumber placeholder="VD. 5.0 (mmol/L)" />
         </Form.Item>
 
         <Form.Item
           name="Cortisol"
-          label="Dinh luong Cortisol"
+          label="Định lượng Cortisol"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <InputNumber placeholder="Eg. 250 (mnmol/L)" />
+          <InputNumber placeholder="VD. 250 (mnmol/L)" />
         </Form.Item>
 
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit" loading={loading}>
-            Submit
+            Gửi
           </Button>
           <Button htmlType="button" onClick={onReset}>
-            Reset
+            Đặt lại
           </Button>
         </Form.Item>
       </Form>

@@ -63,24 +63,24 @@ const ViemPhoi = () => {
           ]}
         >
           <Select
-            placeholder="Select a option and change input text above"
+            placeholder="Chọn giới tính"
             allowClear
           >
-            <Option value="male">Male</Option>
-            <Option value="female">Female</Option>
+            <Option value="male">Nam</Option>
+            <Option value="female">Nữ</Option>
           </Select>
         </Form.Item>
-        <h2>Chi so chung</h2>
+        <h2>Chỉ số chung</h2>
         <Form.Item
           name="HuyetAp"
-          label="Huyet ap"
+          label="Huyết áp"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <Input placeholder="Eg. 120/80 (mmHg)" />
+          <Input placeholder="VD. 120/80 (mmHg)" />
         </Form.Item>
 
         <Form.Item
@@ -92,39 +92,39 @@ const ViemPhoi = () => {
             },
           ]}
         >
-          <InputNumber placeholder="Eg. 25.6" />
+          <InputNumber placeholder="VD. 25.6" />
         </Form.Item>
 
         <Form.Item
           name="NhipTim"
-          label="Nhip Tim"
+          label="Nhịp tim"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <InputNumber placeholder="Eg. 90 (nhip/phut)" />
+          <InputNumber placeholder="VD. 90 (nhịp/phút)" />
         </Form.Item>
 
         <Form.Item
           name="NhipTho"
-          label="Nhip Tho"
+          label="Nhịp thở"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <InputNumber placeholder="Eg. 19 (lan/phut)" />
+          <InputNumber placeholder="VD. 19 (lần/phút)" />
         </Form.Item>
 
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit">
-            Submit
+            Gửi
           </Button>
           <Button htmlType="button" onClick={onReset}>
-            Reset
+            Đặt lại
           </Button>
         </Form.Item>
       </Form>
